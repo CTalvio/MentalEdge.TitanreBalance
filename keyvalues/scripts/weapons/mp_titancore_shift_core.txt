@@ -1,0 +1,38 @@
+WeaponData
+{
+
+	// Ammo
+	"ammo_stockpile_max"							"200"
+	"ammo_clip_size"   								"200"
+	"ammo_default_total"							"200"
+
+	"damage_protection"								"0"
+
+	"play_offhand_charging_anim"  					"1"
+
+	MP_BASE
+	{
+		"core_duration"								"10.0" //Needs to match charge_cooldown_delay
+		"charge_cooldown_delay"   					"10.0"
+		"charge_cooldown_time"						"13.0"
+	}
+
+	// Behavior
+	"core_build_time"								"120"
+	"chargeup_time"									"0.75"	// also update ACT_MP_OFFHAND_CHARGING time in qc
+	"passive"										"PAS_SHIFT_CORE"
+
+	"readymessage"									"#HUD_CORE_ONLINE_STRYDER_SHIFT"
+	"readyhint"										"#HUD_CORE_ONLINE_STRYDER_SHIFT_HINT"
+
+	// Charge settings
+	"charge_time" 									"0.75" // chargeup time // also update update ACT_MP_OFFHAND_CHARGING time in qc
+	"charge_end_forces_fire"  						"1"
+	"charge_require_input"							"0"
+
+	"dialog_core_online"							"swordCoreOnline"
+	"dialog_core_activated"							"swordCoreActivated"
+
+	"npc_rest_time_between_bursts_min"				"20"
+	"npc_rest_time_between_bursts_max"				"20"
+}

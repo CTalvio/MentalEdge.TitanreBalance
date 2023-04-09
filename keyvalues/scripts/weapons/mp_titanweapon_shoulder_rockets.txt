@@ -1,0 +1,165 @@
+WeaponData
+{
+
+	"offhand_keep_primary_in_hand"					"1"
+
+	"projectile_drift_windiness"					"7"
+	"projectile_drift_intensity"					"0.96"
+	"projectile_straight_time_min"					"0.9"
+	"projectile_straight_time_max"					"1.2"
+	"projectile_straight_radius_min"				"0"
+	"projectile_straight_radius_max"				"1"
+
+	"aimassist_disable_hipfire_humansonly"			"1"
+	"aimassist_disable_ads_humansonly"				"1"
+
+    "cooldown_type"                                 "charged_shot"
+	MP_BASE
+	{
+		"fire_rate"   									"12"
+
+		// Damage - When Used by Players
+		"damage_near_distance"							"800"
+		"damage_far_distance" 							"1200"
+		"damage_near_value"   							"250"
+		"damage_far_value"								"250"
+		"damage_near_value_titanarmor"					"350"
+		"damage_far_value_titanarmor"					"350"
+		"explosion_damage"								"100"
+		"explosion_damage_heavy_armor"					"350"
+
+		"explosionradius" 								"120"
+
+		"enable_highlight_networking_on_creation"		"<KEEP_DEFAULT>"
+	}
+
+	"impulse_force"   								"20000"
+
+	// Charge settings
+	"charge_time" 									"-1"
+	"charge_cooldown_time"							"18.0"
+	"charge_cooldown_delay"   						"2.0"
+	"charge_end_forces_fire"  						"1"
+	"charge_remain_full_when_fired"					"1"
+
+	// Ammo
+	"ammo_stockpile_max"							"400"
+	"ammo_clip_size"   								"400"
+	"ammo_default_total"							"400"
+	"ammo_no_remove_from_stockpile"					"1"
+	"ammo_no_remove_from_clip"						"1"
+
+	// Behavior
+	"burst_fire_delay"								"0.7"
+	"zoom_time_in"									"0.1"
+	"zoom_time_out"   								"0.1"
+	"zoom_fov"										"50"
+	"reload_time" 									"0"
+	"holster_time"									"0.1"
+	"deploy_time" 									"0.25"
+	"lower_time"  									"0.1"
+	"raise_time"  									"0.25"
+	"vortex_refire_behavior"  						"rocket"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"1"
+	"allow_headshots" 								"0"
+
+	// Spread
+	"spread_stand_hip"  							"0"
+	"spread_stand_ads"   							"0"
+
+	"ammo_suck_behavior"							"offhand_weapons"
+
+	Mods
+	{
+		mod_ordnance_core
+		{
+			"charge_cooldown_time"							"/1.25"
+		}
+
+		dev_mod_low_recharge
+		{
+			"charge_cooldown_time"   									"/20"
+		}
+
+		extended_smart_ammo_range
+		{
+			"smart_ammo_search_distance"  					"8000"
+		}
+
+		burn_mod_titan_shoulder_rockets
+		{
+			//"smart_ammo_max_targeted_burst"					"18"	// this never worked as the max was 12 in code
+			//"smart_ammo_target_max_locks_heavy"				"18"
+			"charge_cooldown_time"							"/1.65"
+
+			"damage_near_value"   							"225" //was 200
+			"damage_far_value"								"225" //was 200
+
+			"is_burn_mod"		"1"
+		}
+
+		upgradeCore_Vanguard
+		{
+			"explosion_inner_radius"                        "60"
+
+            "charge_cooldown_time"							"6.0"
+	        "charge_cooldown_delay"   						"1.0"
+
+			"smart_ammo_max_targeted_burst"					"6"
+			"smart_ammo_target_max_locks_heavy"				"6"
+			"smart_ammo_search_angle" 						"30"
+			"smart_ammo_unlock_debounce_time"				"0.8"
+			"smart_ammo_new_target_delay"					"0.3"
+			"smart_ammo_apply_new_target_delay_to_first_target" "1"
+			"projectile_trail_effect_0"						"Rocket_Smoke_SMALL_Titan_mod"
+			"hud_icon"										"rui/titan_loadout/passive/monarch_core_multi_target"
+			"smart_ammo_lock_type"							"large"
+
+			"npc_min_burst"   								"3"
+			"npc_max_burst"   								"3"
+			"npc_rest_time_between_bursts_min"					"3"
+			"npc_rest_time_between_bursts_max"					"4"
+
+			"viewmodel"   									"models/weapons/titan_bt_rocket_pod/atpov_titan_bt_rocket_pod_right.mdl"
+		}
+
+		upgradeCore_MissileRack_Vanguard
+		{
+			"explosion_inner_radius"                        "60"
+
+            "charge_cooldown_time"							"8.0"
+            "charge_cooldown_delay"   						"1.0"
+
+			"smart_ammo_max_targeted_burst"					"9"
+			"smart_ammo_target_max_locks_heavy"				"9"
+			"smart_ammo_search_angle" 						"30"
+			"smart_ammo_unlock_debounce_time"				"0.2"
+			"smart_ammo_new_target_delay"					"0.3"
+			"smart_ammo_apply_new_target_delay_to_first_target" "1"
+			"projectile_trail_effect_0"						"Rocket_Smoke_SMALL_Titan_mod"
+			"hud_icon"										"rui/titan_loadout/passive/monarch_core_multi_target"
+			"smart_ammo_lock_type"							"large"
+
+			"npc_min_burst"   								"6"
+			"npc_max_burst"   								"6"
+			"npc_rest_time_between_bursts_min"					"3"
+			"npc_rest_time_between_bursts_max"					"4"
+
+			"viewmodel"   									"models/weapons/titan_bt_rocket_pod/atpov_titan_bt_rocket_pod_right.mdl"
+		}
+
+		fd_balance
+		{
+			"damage_near_value_titanarmor"				"*0.8"
+			"damage_far_value_titanarmor"				"*0.8"
+			"explosion_damage"							"*0.8"
+			"explosion_damage_heavy_armor"				"*0.8"
+			"damage_near_value"   						"*0.8"
+			"damage_far_value"							"*0.8"
+		}
+	}
+}

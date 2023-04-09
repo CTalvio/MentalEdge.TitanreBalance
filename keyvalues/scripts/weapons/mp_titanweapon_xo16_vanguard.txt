@@ -1,0 +1,301 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"OnWeaponPrimaryAttack_titanweapon_xo16"
+	"OnWeaponNpcPrimaryAttack"						"OnWeaponNpcPrimaryAttack_titanweapon_xo16"
+
+	"projectilemodel" 								"models/weapons/bullets/projectile_arl.mdl"
+	"projectile_trail_effect_0" 					"P_mastiff_proj"
+
+	"bolt_gravity_enabled"							"0"
+	"projectile_launch_speed"						"10000"
+	"projectile_gravity_scale"						"0.0001"
+
+	"bolt_hitsize"									"0.0"
+	"bolt_hitsize_grow1_time"						"0.075"
+	"bolt_hitsize_grow1_size"						"1.0"
+	"bolt_hitsize_grow2_time"						"0.18"
+	"bolt_hitsize_grow2_size"						"2.0"
+	"bolt_hitsize_growfinal_lerptime"				"0.18"
+	"bolt_hitsize_growfinal_size"					"2.0"
+
+	// Network
+	"net_optimize"		                            "0"
+
+	// Damage - When Used by Players
+	"damage_type" 									"bullet"
+
+	"fire_rate"   									"12"
+
+	"ammo_clip_size"   								"40"
+
+	"enable_highlight_networking_on_creation"		"1"
+
+	"damage_near_distance"							"1200"
+	"damage_far_distance" 							"1800"
+	"damage_near_value"   							"45"
+	"damage_far_value"								"40"
+	"damage_near_value_titanarmor"					"120"
+	"damage_far_value_titanarmor" 					"100"
+
+	"deploy_time" 									"1.75"
+
+	"spread_max_kick_stand_hip"						"2.5"
+	"spread_max_kick_stand_ads"						"1.2"
+	"spread_max_kick_crouch_hip"  					"2.5"
+	"spread_max_kick_crouch_ads"  					"1.2"
+	"spread_max_kick_air_hip" 						"2.5"
+	"spread_max_kick_air_ads" 						"1.2"
+
+	"impulse_force"   								"10000"
+	"critical_hit_damage_scale"						"1.5"
+
+	// Ammo
+	"ammo_stockpile_max"							"4040"
+	"ammo_default_total"							"4040"
+
+	// Behavior
+	"zoom_time_in"									"0.2"
+	"zoom_time_out"   								"0.2"
+	"zoom_fov"										"50"
+	"reload_time" 									"2.6"
+	"reload_time_late1"								"2.06"
+	"reload_time_late2"								"0.94"
+	"reload_time_late3"								"0.39"
+	"reloadempty_time"								"2.6"
+	"reloadempty_time_late1"						"2.06"
+	"reloadempty_time_late2"						"0.94"
+	"holster_time"									".45"
+	"lower_time"  									".1"
+	"raise_time"  									".4"
+	"vortex_refire_behavior"  						"bullet"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"1"
+	"allow_headshots" 								"1"
+	"headshot_distance" 							"5000"
+	"damage_headshot_scale"							"1.5"
+	"critical_hit"									"1"
+
+	// Spread
+	"spread_stand_hip"								"2.0"
+	"spread_stand_hip_run"							"2.0"
+	"spread_stand_hip_sprint"                       "2.0"
+	"spread_crouch_hip"   							"2.0"
+	"spread_air_hip"  								"2.0"
+	"spread_stand_ads"								"1.0"
+	"spread_crouch_ads"   							"1.0"
+	"spread_air_ads"  								"1.0"
+
+	"spread_kick_on_fire_stand_hip"					"0.2"
+	"spread_kick_on_fire_stand_ads"					"0.15"
+	"spread_kick_on_fire_crouch_hip"  				"0.2"
+	"spread_kick_on_fire_crouch_ads"  				"0.15"
+	"spread_kick_on_fire_air_hip" 					"0.2"
+	"spread_kick_on_fire_air_ads" 					"0.15"
+
+	"spread_decay_rate"   							"6.5"
+	"spread_decay_delay"  							"0.15"
+
+	Mods
+	{
+		arc_rounds
+		{
+			"fx_muzzle_flash_view"							"wpn_muzzleflash_xo_elec_FP"
+			"fx_muzzle_flash_world"							"wpn_muzzleflash_xo_elec"
+
+			"tracer_effect"   								"P_wpn_tracer_xo16_elec"
+			"tracer_effect_first_person"  					"P_wpn_tracer_xo16_elec"
+			"impact_effect_table"		 					"titan_bullet_elec"
+
+			"fire_sound_1_player_1p"						"Weapon_XO16_SingleAmped_Monarch_1P"
+			"fire_sound_1_player_3p"						"Weapon_XO16_SingleAmped_Monarch_3P"
+
+			"hud_icon"										"r2_ui/menus/loadout_icons/titan_weapon/titan_weapon_xo16_arc"
+
+			"vortex_drain"									"0.020"
+
+			"damage_flags"									"DF_STOPS_TITAN_REGEN | DF_BULLET | DF_NO_SELF_DAMAGE | DF_ELECTRICAL"
+		}
+
+		arc_rounds_with_battle_rifle
+		{
+			"fx_muzzle_flash_view"							"wpn_muzzleflash_xo_elec_FP"
+			"fx_muzzle_flash_world"							"wpn_muzzleflash_xo_elec"
+
+			"tracer_effect"   								"P_wpn_tracer_xo16_elec"
+			"tracer_effect_first_person"  					"P_wpn_tracer_xo16_elec"
+			"impact_effect_table"		 					"titan_bullet_elec"
+
+			"vortex_drain"									"0.033"
+
+			"ammo_clip_size"   								"50"
+
+			"damage_flags"									"DF_STOPS_TITAN_REGEN | DF_BULLET | DF_NO_SELF_DAMAGE | DF_ELECTRICAL"
+
+			"hud_icon"										"r2_ui/menus/loadout_icons/titan_weapon/titan_weapon_xo16_combo"
+
+			"fire_rate"						"8"
+			"fire_rate_max"					"18"
+			"fire_rate_max_time_speedup"	"3.0"
+			"fire_rate_max_time_cooldown"	"2.15"
+
+			"damage_near_value"   							"*1.25"
+			"damage_far_value"								"*1.25"
+			"damage_near_value_titanarmor"					"*1.25"
+			"damage_far_value_titanarmor" 					"*1.25"
+
+			"viewkick_scale_min_hipfire"  					"1.5"//0.6
+			"viewkick_scale_max_hipfire"  					"2.0"//1.0
+			"viewkick_scale_min_ads"  						"0.6"//0.3
+			"viewkick_scale_max_ads"  						"1.6"//0.8
+			"viewkick_scale_valuePerShot" 					"1"
+			"viewkick_scale_valueLerpStart"   				"50"
+			"viewkick_scale_valueLerpEnd" 					"150"
+
+			"viewkick_pitch_base" 							"-0.05"
+			"viewkick_pitch_random"   						"0.65"
+			"viewkick_pitch_hardScale"						"*1.5"
+
+			"viewkick_yaw_base"   							"0.05"
+			"viewkick_yaw_random" 							"0.30"
+			"viewkick_yaw_hardScale"  						"*1.5"
+
+			// Spread
+			"spread_stand_hip"								"1.5"
+			"spread_stand_hip_run"							"1.5"
+			"spread_stand_hip_sprint"                       "1.5"
+			"spread_crouch_hip"   							"1.5"
+			"spread_air_hip"  								"1.5"
+			"spread_stand_ads"								"0.5"
+			"spread_crouch_ads"   							"0.5"
+			"spread_air_ads"  								"0.5"
+
+			"fire_sound_1_player_1p"						"weapon_xo16_singleaccel_amped_1p"
+			"fire_sound_1_player_3p"						"weapon_xo16_singleaccel_amped_3p"
+
+			"burst_or_looping_fire_sound_start_1p"			""
+			"burst_or_looping_fire_sound_middle_1p"			""
+			"burst_or_looping_fire_sound_end_1p"			""
+
+			"burst_or_looping_fire_sound_start_3p"			""
+			"burst_or_looping_fire_sound_middle_3p"			""
+			"burst_or_looping_fire_sound_end_3p"			""
+
+			"burst_or_looping_fire_sound_start_npc"			""
+			"burst_or_looping_fire_sound_middle_npc"		""
+			"burst_or_looping_fire_sound_end_npc"			""
+
+			"bodygroup1_set"								"1"
+		}
+		battle_rifle_icon
+		{
+			"hud_icon"										"r2_ui/menus/loadout_icons/titan_weapon/titan_weapon_xo16_br_upgrade"
+		}
+
+		battle_rifle
+		{
+			"fire_rate"						"9"
+			"fire_rate_max"					"18"
+			"fire_rate_max_time_speedup"	"2.0"
+			"fire_rate_max_time_cooldown"	"2.15"
+
+			"damage_near_value"   							"*1.1"
+			"damage_far_value"								"*1.1"
+			"damage_near_value_titanarmor"					"*1.1"
+			"damage_far_value_titanarmor" 					"*1.1"
+
+			"viewkick_scale_min_hipfire"  					"1.5"//0.6
+			"viewkick_scale_max_hipfire"  					"2.0"//1.0
+			"viewkick_scale_min_ads"  						"0.6"//0.3
+			"viewkick_scale_max_ads"  						"1.6"//0.8
+			"viewkick_scale_valuePerShot" 					"1"
+			"viewkick_scale_valueLerpStart"   				"50"
+			"viewkick_scale_valueLerpEnd" 					"150"
+
+			"viewkick_pitch_base" 							"-0.05"
+			"viewkick_pitch_random"   						"0.65"
+			"viewkick_pitch_hardScale"						"*1.5"
+
+			"viewkick_yaw_base"   							"0.05"
+			"viewkick_yaw_random" 							"0.30"
+			"viewkick_yaw_hardScale"  						"*1.5"
+
+			// Spread
+			"spread_stand_hip"								"1.5"
+			"spread_stand_hip_run"							"1.5"
+			"spread_stand_hip_sprint"                       "1.5"
+			"spread_crouch_hip"   							"1.5"
+			"spread_air_hip"  								"1.5"
+			"spread_stand_ads"								"0.5"
+			"spread_crouch_ads"   							"0.5"
+			"spread_air_ads"  								"0.5"
+
+			"fire_sound_1_player_1p"						"Weapon_XO16_SingleAccel_1P"
+			"fire_sound_1_player_3p"						"Weapon_XO16_SingleAccel_3P"
+
+			"burst_or_looping_fire_sound_start_1p"			""
+			"burst_or_looping_fire_sound_middle_1p"			""
+			"burst_or_looping_fire_sound_end_1p"			""
+
+			"burst_or_looping_fire_sound_start_3p"			""
+			"burst_or_looping_fire_sound_middle_3p"			""
+			"burst_or_looping_fire_sound_end_3p"			""
+
+			"burst_or_looping_fire_sound_start_npc"			""
+			"burst_or_looping_fire_sound_middle_npc"		""
+			"burst_or_looping_fire_sound_end_npc"			""
+
+			"bodygroup1_set"								"1"
+		}
+
+		rapid_reload
+		{
+			"reload_time" 									"*0.75"
+			"reload_time_late1"								"*0.75"
+			"reload_time_late2"								"*0.75"
+			"reload_time_late3"								"*0.75"
+			"reloadempty_time"								"*0.75"
+			"reloadempty_time_late1"						"*0.75"
+			"reloadempty_time_late2"						"*0.75"
+		}
+		fd_vanguard_utility_1
+		{
+		}
+		fd_vanguard_utility_2
+		{
+		}
+		fd_vanguard_weapon_1
+		{
+			"zoom_toggle_lerp_time"							"0.2"
+			"zoom_toggle_fov"								"25"
+
+			"spread_stand_hip"								"*0.5"
+			"spread_stand_hip_run"							"*0.5"
+			"spread_stand_hip_sprint"                       "*0.5"
+			"spread_crouch_hip"   							"*0.5"
+			"spread_air_hip"  								"*0.5"
+			"spread_stand_ads"								"*0.5"
+			"spread_crouch_ads"   							"*0.5"
+			"spread_air_ads"  								"*0.5"
+		}
+		fd_vanguard_weapon_2
+		{
+			"critical_hit_damage_scale"						"2.0"
+		}
+		fd_balance
+		{
+			"damage_near_value_titanarmor"					"*0.8"
+			"damage_far_value_titanarmor" 					"*0.8"
+		}
+	}
+}
+
+
+	//"viewmodel"   									"models/weapons/titan_xo16_shorty/atpov_xo16shorty.mdl"
+	//"playermodel" 									"models/weapons/titan_xo16_shorty/w_xo16shorty.mdl"
+
+	//dof_zoom_focusArea_horizontal					0.04
+	//dof_zoom_focusArea_top						0.04
+	//dof_zoom_focusArea_bottom						-0.04

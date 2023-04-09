@@ -1,0 +1,23 @@
+WeaponData
+{
+	// Ammo
+	"cooldown_type"                                 "ammo_instant"
+	"ammo_clip_size"   								"100"
+	"ammo_default_total"							"100"
+	"ammo_display"									"bar"
+	"ammo_min_to_fire"								"100"
+	"ammo_per_shot"									"100"
+	"ammo_stockpile_max"							"100"
+	"ammo_drains_to_empty_on_fire"					"1"
+
+	//Regen Ammo
+	"regen_ammo_refill_rate"						"10"
+	"regen_ammo_refill_start_delay"					"0.0"
+
+	"reload_enabled"								"0"
+
+	// Behavior
+	"fire_rate"   									"1000.0"
+
+	"breaks_cloak"									"0"
+}

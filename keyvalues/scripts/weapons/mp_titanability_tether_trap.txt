@@ -1,0 +1,88 @@
+WeaponData
+{
+
+	// Ammo
+	"cooldown_type"                                 "ammo_instant"
+	"ammo_clip_size"   								"200"
+	"ammo_default_total"							"200"
+	"ammo_min_to_fire"								"200"
+	"ammo_per_shot"									"200"
+	"ammo_stockpile_max"							"200"
+	"ammo_drains_to_empty_on_fire"					"1"
+	"ammo_no_remove_from_clip"						"1"
+
+	//Regen Ammo
+	"regen_ammo_refill_rate"						"10"
+	"regen_ammo_refill_start_delay"					"0.0"
+
+	"fire_duration"                                 "0.1"
+
+	"reload_enabled"								"0"
+
+	// Rumble
+	"fire_rumble"									"rumble_titan_ordnanceeject"
+
+	MP_BASE
+	{
+		"damage_near_distance"							"800"
+		"damage_far_distance" 							"1200"
+		"damage_near_value"   							"0"
+		"damage_far_value"								"0"
+		"damage_near_value_titanarmor"   				"0"
+		"damage_far_value_titanarmor"					"0"
+		"explosion_damage"								"0"
+		"explosion_damage_heavy_armor"					"0"
+	}
+
+	"fire_rate"   									"1000.0"
+	"holster_time"									"0.5"
+	"deploy_time" 									"0.2"
+	"lower_time"  									"0.5"
+	"raise_time"  									"0.2"
+
+	"npc_min_burst"									"1"
+	"npc_max_burst"									"1"
+	"npc_rest_time_between_bursts_min"				"14.0"
+	"npc_rest_time_between_bursts_max"				"18.0"
+	"npc_pre_fire_delay"							"1.5"
+	"npc_pre_fire_delay_interval"					"3"
+
+	"npc_min_range"   								"0"
+	"npc_max_range"   								"3000"
+
+	// Sound
+	"fire_sound_1_player_1p"						"Wpn_TetherTrap_Deploy_1P"
+	"fire_sound_1_player_3p"						"Wpn_TetherTrap_Deploy_3P"
+	"sound_dryfire"									"titan_dryfire"
+
+	"explosionradius" 								"320"
+	"explosion_inner_radius"						"140"
+
+	Mods
+	{
+		npc_normal_difficulty
+		{
+			"npc_rest_time_between_bursts_min"				"*2"
+			"npc_rest_time_between_bursts_max"				"*2"
+		}
+
+		pas_northstar_trap
+		{
+			"projectile_max_deployed"					"8"
+		}
+
+		fd_explosive_trap
+		{
+			"hud_icon"										"rui/menu/fd_menu/upgrade_northstar_explosive_trap_hud"
+		}
+
+		fd_trap_charges
+		{
+			"ammo_min_to_fire"								"100"
+			"ammo_per_shot"									"100"
+			"regen_ammo_refill_rate"						"5"
+			"ammo_drains_to_empty_on_fire"					"0"
+			"ammo_no_remove_from_clip"						"0"
+		}
+	}
+}

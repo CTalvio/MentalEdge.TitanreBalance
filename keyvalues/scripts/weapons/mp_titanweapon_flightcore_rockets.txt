@@ -1,0 +1,11 @@
+WeaponData
+{
+
+	MP_BASE
+	{
+		"projectile_launch_speed"						"2750"
+	}
+
+	// Behavior
+	"fire_rate"   									"15.0"
+}

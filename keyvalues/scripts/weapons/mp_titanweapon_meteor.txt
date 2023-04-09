@@ -1,0 +1,163 @@
+WeaponData
+{
+	MP_BASE
+	{
+	    "damage_near_distance"							"1500"		// 1500
+	    "damage_far_distance" 							"3000"		// 3000
+	    "damage_near_value"   							"310"		// 310
+	    "damage_far_value"								"310"		// 310
+	    "damage_near_value_titanarmor"					"800"		// 900
+	    "damage_far_value_titanarmor" 					"800"		// 900
+
+		"deploy_time" 									"0.85"
+
+	    "explosion_damage"								"50"		// 150
+	    "explosion_damage_heavy_armor"					"200"		// 150
+
+		"critical_hit_damage_scale"						"1.0"		// 3.0
+
+	    "explosion_inner_radius"  						"50"
+	    "explosionradius" 								"150"
+
+    	"npc_explosion_damage"							"<KEEP_DEFAULT>"
+    	"npc_explosion_damage_heavy_armor"				"<KEEP_DEFAULT>"
+
+		"ammo_min_to_fire"								"1"
+		"enable_highlight_networking_on_creation"		"<KEEP_DEFAULT>"
+	}
+
+	// Behavior
+	"fire_rate"   									"1.2"
+	"anim_alt_idleAttack"							"1"
+
+	"ammo_clip_size"   								"2"
+	"ammo_default_total"							"40"
+	"ammo_stockpile_max"							"40"
+	"ammo_no_remove_from_stockpile"					"1"
+	"ammo_min_to_fire"								"1"
+	"ammo_size_segmented_reload"					"1"
+	"ammo_display_as_clips"							"0"
+
+	"reload_is_segmented"							"1"
+	"reload_time" 									"2"
+	"reloadempty_time"								"2"
+	"reloadsegment_time_loop"						"1.8"
+	"reloadsegment_time_end"						"1.2"
+	"reload_alt_anim"								"0"
+	"zoom_time_in"									"0.1"
+	"zoom_time_out"   								"0.1"
+	"zoom_fov"										"50"
+	"reload_time_late1"								"1.7"
+	"reloadempty_time_late1"						"1.7"
+	"holster_time"									".45"
+	"lower_time"  									".1"
+	"raise_time"  									".4"
+	"vortex_refire_behavior"  						"explosive_round"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"1"
+	"allow_headshots" 								"1"
+	"grenade_bounce_vel_frac_shallow"				"0.5"
+	"grenade_bounce_vel_frac_sharp"					"0.3"
+	"grenade_bounce_vel_frac_along_normal"			"0.5"
+	"grenade_bounce_randomness"						"0.2"
+	"grenade_bounce_extra_vertical_randomness"		"0.2"
+	"grenade_roll_vel_frac_per_second"				"0.1"
+	"projectile_launch_speed"						"2750"
+	"projectile_gravity_scale"						"0.977"
+	"projectile_launch_pitch_offset"				"2"
+	"aimassist_disable_hipfire_humansonly"			"1"
+	"aimassist_disable_ads_humansonly"				"1"
+	"projectile_inherit_owner_velocity_scale"		"0.0"
+
+
+	// Spread
+	"spread_stand_hip"								"4.5"
+	"spread_stand_hip_sprint"                       "4.5"
+	"spread_stand_hip_run"							"4.5"
+	"spread_stand_ads"								"0"
+	"spread_crouch_hip"   							"4.5"
+	"spread_crouch_ads"   							"0"
+	"spread_air_hip"  								"4.5"
+	"spread_air_ads"  								"0"
+
+	"spread_kick_on_fire_stand_hip"					"0.35"
+	"spread_kick_on_fire_stand_ads"					"0.35"
+	"spread_kick_on_fire_crouch_hip"  				"0.25"
+	"spread_kick_on_fire_crouch_ads"  				"0.25"
+	"spread_kick_on_fire_air_hip" 					"0.35"
+	"spread_kick_on_fire_air_ads" 					"0.35"
+
+	"spread_max_kick_stand_hip"						"4.0"
+	"spread_max_kick_stand_ads"						"0.0"
+	"spread_max_kick_crouch_hip"  					"4.0"
+	"spread_max_kick_crouch_ads"  					"0.0"
+	"spread_max_kick_air_hip" 						"4.0"
+	"spread_max_kick_air_ads" 						"0.0"
+
+	"spread_decay_rate"   							"3.5"
+	"spread_decay_delay"  							"1.05"
+
+	Mods
+	{
+		pas_scorch_weapon
+		{
+			"damage_near_value_titanarmor"					"1000"
+	   		"damage_far_value_titanarmor" 					"1000"
+		}
+		fd_wpn_upgrade_1
+		{
+			"ammo_clip_size"   								"2"
+			"ammo_default_total"							"40"
+			"ammo_stockpile_max"							"40"
+			"ammo_no_remove_from_stockpile"					"1"
+			"ammo_min_to_fire"								"1"
+
+			"anim_alt_idleAttack"							"1"
+
+			"fire_rate"   									"1.2"
+			"reload_alt_anim"								"0"
+
+			"reload_is_segmented"							"1"
+			"reload_time" 									"1.6"
+			"reloadempty_time"								"1.6"
+			"reloadsegment_time_loop"						"1.2"
+			"reloadsegment_time_end"						"0.8"
+
+			"ammo_size_segmented_reload"					"1"
+			"ammo_display_as_clips"							"0"
+		}
+		fd_wpn_upgrade_2
+		{
+			"ammo_clip_size"   								"3"
+			"ammo_default_total"							"40"
+			"ammo_stockpile_max"							"40"
+			"ammo_no_remove_from_stockpile"					"1"
+			"ammo_min_to_fire"								"1"
+
+			"anim_alt_idleAttack"							"1"
+
+			"fire_rate"   									"1.2"
+			"reload_alt_anim"								"0"
+
+			"reload_is_segmented"							"1"
+			"reload_time" 									"1.6"
+			"reloadempty_time"								"1.6"
+			"reloadsegment_time_loop"						"1.2"
+			"reloadsegment_time_end"						"0.8"
+
+			"ammo_size_segmented_reload"					"1"
+			"ammo_display_as_clips"							"0"
+		}
+		fd_fire_damage_upgrade
+		{
+
+		}
+		fd_hot_streak
+		{
+
+		}
+	}
+}

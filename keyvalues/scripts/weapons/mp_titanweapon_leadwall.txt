@@ -1,0 +1,116 @@
+WeaponData
+{
+	MP_BASE
+	{
+		"damage_near_distance"							"600"
+		"damage_far_distance" 							"1000"
+		"damage_near_value"   							"60"
+		"damage_far_value"								"25"
+		"damage_near_value_titanarmor"					"100"
+		"damage_far_value_titanarmor" 					"75"
+
+		"deploy_time" 									"0.8"
+
+		"ammo_min_to_fire"								"1"
+
+		"enable_highlight_networking_on_creation"		"<KEEP_DEFAULT>"
+		"projectile_ricochet_max_count"					"0"
+	}
+
+//	"explosion_damage"								"50"		// 150
+//	"explosion_damage_heavy_armor"					"50"		// 150
+
+	"explosion_inner_radius"  						"16"
+	"explosionradius" 								"32"
+	"impulse_force"   								"5000"
+	"projectile_speed"								"5280"
+
+	"critical_hit_damage_scale"						"1.5"
+
+	"critical_hit"									"1"
+
+	"projectile_inherit_owner_velocity_scale"		"0.2"
+
+	"projectiles_per_shot"							"8"
+
+	// Ammo
+	"ammo_stockpile_max"							"200"
+	"ammo_clip_size"   								"4"
+	"ammo_default_total"							"200"
+	"ammo_display"									"segmented"
+
+	// Behavior
+	"fire_rate"   									"2.5"
+	"zoom_time_in"									"0.2"
+	"zoom_time_out"   								"0.2"
+	"zoom_fov"										"55"
+	"reload_time" 									"2.25"
+	"reload_time_late1" 							"1.42"
+	"reload_time_late2" 							"0.77"
+	"reloadempty_time"								"2.25"
+	"reloadempty_time_late1"						"1.42"
+	"reloadempty_time_late2"						"0.77"
+	"holster_time"									"0.5"
+	"lower_time"  									"0.25"
+	"raise_time"  									"0.3"
+	"vortex_refire_behavior"  						"bullet"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"0"
+	"allow_headshots" 								"0"
+	"primary_fire_does_not_block_sprint"			"0"
+	"ads_move_speed_scale"							"0.5"
+	"aimassist_disable_hipfire_humansonly"			"1"
+	"aimassist_disable_ads_humansonly"				"1"
+
+	// Spread
+	"spread_stand_hip" 								"0.0"
+	"spread_stand_hip_run" 							"0.0"
+	"spread_stand_hip_sprint"                       "0.0"
+	"spread_stand_ads"  							"0.0"
+	"spread_crouch_hip"								"0.0"
+	"spread_crouch_ads"  							"0.0"
+	"spread_air_hip"	   							"0.0"
+	"spread_air_ads"   								"0.0"
+
+	Mods
+	{
+		instaload
+		{
+			// Regen Ammo
+			"regen_ammo_refill_rate"						"20.0"
+			"regen_ammo_refill_start_delay"					"5.0"
+		}
+		burn_mod_titan_leadwall
+		{
+
+			"damage_near_value"   							"60"
+			"damage_far_value"								"50"
+			"damage_near_value_titanarmor"					"210"
+			"damage_far_value_titanarmor" 					"210"
+			"is_burn_mod"		"1"
+		}
+		sur_level_0
+		{
+
+		}
+		sur_level_1
+		{
+
+		}
+		sur_level_2
+		{
+
+		}
+		sur_level_3
+		{
+
+		}
+		pas_ronin_weapon
+		{
+			"projectile_ricochet_max_count"					"1"
+		}
+	}
+}

@@ -1,0 +1,94 @@
+WeaponData
+{
+	MP_BASE
+	{
+		// Damage - When Used by Players
+		"damage_near_distance"							"800"
+		"damage_far_distance" 							"1200"
+		"damage_near_value"   							"0"
+		"damage_far_value"								"0"
+		"damage_near_value_titanarmor"					"0"
+		"damage_far_value_titanarmor" 					"0"
+		"explosion_damage"								"0"
+		"explosion_damage_heavy_armor"					"0"
+
+		"shared_energy_cost"							"150"
+		"projectile_gravity_scale"						"2"
+	}
+
+
+	"explosionradius" 								"320"
+	"explosion_inner_radius"						"140"
+	"impulse_force"   								"15000"
+
+	// Ammo
+	"ammo_display"									"bar"
+	"ammo_stockpile_max"							"200"
+	"ammo_clip_size"   								"200"
+	"ammo_default_total"							"200"
+	"ammo_per_shot"									"200"
+	"ammo_min_to_fire"								"200"
+	"cooldown_type"                                 "ammo_instant"
+
+	//Regen Ammo
+	"regen_ammo_refill_rate"						"20"
+	"regen_ammo_refill_start_delay"					"0.0"
+
+	// Behavior
+	"fire_rate"   									"1.0"
+	"burst_fire_delay"								"0.0"
+	"zoom_time_in"									"0.01"
+	"zoom_time_out"   								"0.01"
+	"zoom_fov"										"50"
+	"reload_time" 									"0"
+	"holster_time"									"0.01"
+	"deploy_time" 									"0.01"
+	"lower_time"  									"0.01"
+	"raise_time"  									"0.01"
+	"vortex_refire_behavior"  						"grenade"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"0"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"1"
+	"allow_headshots" 								"0"
+
+	Mods
+	{
+		mod_spider
+		{
+
+		}
+
+		clustermissile_fast_recharge
+		{
+			"fire_rate"   									"*2.2"
+		}
+
+		mod_ordnance_core
+		{
+			"fire_rate"   									"*1.25"
+		}
+
+		dev_mod_low_recharge
+		{
+			"fire_rate"   									"*20"
+		}
+		burn_mod_titan_dumbfire_rockets
+		{
+			"projectile_drift_windiness"					"*0.2"
+			"projectile_drift_intensity"					"*0.2"
+			"projectile_straight_time_min"					"*0.2"
+			"projectile_straight_time_max"					"*0.2"
+			"projectile_straight_radius_min"				"*0.2"
+			"projectile_straight_radius_max"				"*0.2"
+			"fire_rate"   									"*1.25"
+			"is_burn_mod"		"1"
+		}
+		pas_ion_tripwire
+		{
+			"regen_ammo_refill_rate"						"33"
+			"shared_energy_cost"							"75"
+		}
+	}
+}

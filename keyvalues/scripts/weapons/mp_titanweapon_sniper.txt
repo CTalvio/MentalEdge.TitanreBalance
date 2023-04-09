@@ -1,0 +1,200 @@
+WeaponData
+{
+
+	"damage_additional_bullets"						"200"		// each additional bullet after the first does this much
+	"damage_additional_bullets_titanarmor"			"200"		// each additional bullet after the first does this much
+
+	MP_BASE
+	{
+		// Damage - When Used by Players
+		"damage_near_distance"							"800"
+		"damage_far_distance" 							"3000"
+		"damage_near_value"   							"300"
+		"damage_far_value"								"300"
+		"damage_near_value_titanarmor"					"300"
+		"damage_far_value_titanarmor" 					"300"
+	}
+
+	"ammo_no_remove_from_stockpile"					"1"
+
+	// Behavior
+	"fire_rate"   									"0.9"
+	"zoom_time_in"									"0.2"
+	"zoom_time_out"   								"0.2"
+	"zoom_fov"										"50"
+	"zoom_toggle_lerp_time"							"0.2"
+	"zoom_toggle_fov"								"25"
+	"reload_time" 									"2"
+	"reload_time_late1" 							"1.42"
+	"reload_time_late2" 							"0.77"
+	"reloadempty_time"								"1.8"
+	"reloadempty_time_late1"						"1.28"
+	"reloadempty_time_late2"						"0.69"
+	"holster_time"									".05"
+	"lower_time"  									".05"
+	"raise_time"  									".3"
+	"vortex_refire_behavior"  						"explosive_round"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"1"
+	"allow_headshots" 								"1"
+	"damage_headshot_scale"							"1.5"
+	"headshot_distance" 							"15000"
+	"aimassist_disable_hipfire"						"1"
+	"aimassist_disable_ads"							"1"
+	"ads_fov_zoomfrac_start"						"0.0"
+	"ads_fov_zoomfrac_end"							"1.0"
+
+	"charge_time" 									"2.25"
+	"charge_levels"									"5"
+	"charge_cooldown_time"							"0.5"
+	"charge_cooldown_delay"   						"0.0"
+	"charge_is_triggered_by_ADS"					"1"
+	"charge_end_forces_fire"						"0"
+	"charge_sound_1p"								"Weapon_Titan_Sniper_WindUp"
+	"charge_sound_stop_when_full"					"0"
+	"charge_sound_seek_to_charge_fraction"			"0"
+	"charge_full_sound_1p"							"Weapon_Titan_Sniper_SustainLoop"
+	"charge_drain_sound_1p"							"Weapon_Titan_Sniper_WindDown"
+	"charge_drain_sound_stop_when_empty"			"1"
+	"charge_drain_sound_seek_to_charge_fraction"	"1"
+	"charge_effect_1p"								"P_wpn_xo_sniper_charge_FP"
+	"charge_effect_3p"								"P_wpn_xo_sniper_charge"
+	"charge_effect_attachment"						"muzzle_flash"
+
+	// Spread
+	"spread_stand_hip"								"8"
+	"spread_stand_hip_run"							"10"
+	"spread_stand_ads"								"0"
+	"spread_crouch_hip"   							"7"
+	"spread_crouch_ads"   							"0"
+	"spread_air_hip"  								"10"
+	"spread_air_ads"  								"0"
+
+	// Crosshair
+	"red_crosshair_range" 							"10000"
+
+	Mods
+	{
+		stryder_sniper
+		{
+
+		}
+
+		fast_reload
+		{
+			"reload_time"								"*0.6"
+			"reload_time_late1"							"*0.6"
+			"reloadempty_time"							"*0.6"
+			"reloadempty_time_late1"					"*0.6"
+		}
+		extended_ammo
+		{
+			"ammo_clip_size"   								"5"
+		}
+		power_shot
+		{
+			"charge_levels"									"7"
+			"charge_time" 									"4.5"
+		}
+		quick_shot
+		{
+			"charge_levels"									"3"
+			"charge_time" 									"1.4"
+		}
+		instant_shot
+		{
+			"charge_levels"									"1"
+			"charge_time" 									"0.05"
+			"critical_hit_damage_scale"						"2.5"
+			"zoom_fov"										"38"	//20 (20 was awful)
+			"ammo_clip_size"   								"5"
+			"projectile_trail_effect_0" 					"P_titan_sniper2"
+			"projectile_trail_effect_1" 					"P_titan_sniper2"
+			"projectile_trail_effect_2" 					"P_titan_sniper2"
+		}
+		burn_mod_titan_sniper
+		{
+			"charge_time" 									"*.6"
+
+			"is_burn_mod"		"1"
+
+			"charge_sound_1p"								"Weapon_Titan_Sniper_WindUp_Amped"
+		}
+		BossTitanViper
+		{
+			"npc_min_range"   								"0"
+			"npc_max_range"   								"16000"
+			"npc_rest_time_between_bursts_min"				"2.0"
+			"npc_rest_time_between_bursts_max"				"4.0"
+
+			"npc_damage_near_value_titanarmor"				"150"
+			"npc_damage_far_value_titanarmor" 				"150"
+		}
+		BossTitanViperAgro
+		{
+			"npc_min_range"   								"0"
+			"npc_max_range"   								"16000"
+			"npc_rest_time_between_bursts_min"				"0.1"
+			"npc_rest_time_between_bursts_max"				"0.5"
+
+			"npc_charge_time_min"							"0.2"
+			"npc_charge_time_max"							"1.0"
+
+			"npc_damage_near_value_titanarmor"				"150"
+			"npc_damage_far_value_titanarmor" 				"150"
+		}
+		pas_northstar_weapon
+		{
+			"pass_through_depth"							"500"		// Not sure how long a dropship is, probably the biggest entity
+		}
+		pas_northstar_optics
+		{
+			"threat_scope_enabled"			"1"
+			"threat_scope_bounds_width"		"1.5"
+			"threat_scope_bounds_height"	"1.1"
+			"threat_scope_fadeWithDistance"	"0"
+		}
+		fd_upgrade_charge
+		{
+			"charge_time" 									"*0.6"
+			"charge_sound_1p"								"Weapon_Titan_Sniper_WindUp_Amped"
+		}
+		fd_upgrade_crit
+		{
+			"critical_hit_damage_scale"						"2.0"
+		}
+	}
+
+	active_crosshair_count				"1"
+	rui_crosshair_index					"0"
+
+	RUI_CrosshairData
+	{
+		DefaultArgs
+		{
+			adjustedSpread				weapon_spread
+			adsFrac 					player_zoomFrac
+			isSprinting					player_is_sprinting
+			isReloading					weapon_is_reloading
+			readyFrac                   progress_ready_to_fire_frac
+			teamColor					crosshair_team_color
+			isAmped						weapon_is_amped
+			chargeFrac                  player_chargeFrac
+			crosshairMovementX          crosshair_movement_x
+			crosshairMovementY          crosshair_movement_y
+		}
+
+		Crosshair_1
+		{
+			"ui"						"ui/crosshair_titan_sniper"
+			"base_spread"				"10.0"
+			Args
+			{
+				isFiring				weapon_is_firing
+			}
+		}
+	}
+}

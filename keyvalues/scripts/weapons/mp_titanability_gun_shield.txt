@@ -1,0 +1,56 @@
+WeaponData
+{
+	// Ammo
+	"cooldown_type"                                 "ammo_instant"
+	"ammo_clip_size"   								"200"
+	"ammo_default_total"							"200"
+	"ammo_display"									"bar"
+	"ammo_min_to_fire"								"200"
+	"ammo_per_shot"									"200"
+	"ammo_stockpile_max"							"200"
+	"ammo_drains_to_empty_on_fire"					"1"
+	"ammo_no_remove_from_clip"						"1"
+
+	//Regen Ammo
+	"regen_ammo_refill_rate"						"25"
+	"regen_ammo_refill_start_delay"					"0.0"
+
+	"reload_enabled"								"0"
+
+	// Behavior
+	"fire_rate"   									"1.0"
+	"fire_duration"									"8.0"
+
+	Mods
+	{
+		npc_normal_difficulty
+		{
+			"fire_rate"								"*4.0"
+		}
+		SiegeMode
+		{
+			"regen_ammo_refill_rate"						"*10"
+		}
+		npc_infinite_shield
+		{
+			"npc_rest_time_between_bursts_min"				"*0.5"
+			"npc_rest_time_between_bursts_max"				"*0.5"
+		}
+		npc_more_shield
+		{
+			"npc_use_min_damage"							"100"
+			"npc_use_min_projectile_damage"					"100"
+			"npc_use_max_damage"							"1000"
+			"npc_rest_time_between_bursts_min"				"8"
+			"npc_rest_time_between_bursts_max"				"10"
+		}
+		fd_gun_shield
+		{
+			"fire_duration"									"10.0"
+		}
+		fd_gun_shield_redirect
+		{
+
+		}
+	}
+}

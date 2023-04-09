@@ -1,0 +1,21 @@
+WeaponData
+{
+	"ammo_stockpile_max"							"650"
+	"ammo_clip_size"   								"650"
+	"ammo_default_total"							"650"
+	"ammo_per_shot"                                 "650"
+	"ammo_min_to_fire"								"650"
+    "regen_ammo_refill_rate"                        "100"
+    "regen_ammo_refill_start_delay"                 "0.55"
+    "ammo_display"									"bar"
+    "cooldown_type"                                 "ammo_instant"
+	"reload_enabled"								"0"
+
+	Mods
+	{
+        stop_regen
+        {
+            "regen_ammo_refill_rate"                "0.001"
+        }
+	}
+}
