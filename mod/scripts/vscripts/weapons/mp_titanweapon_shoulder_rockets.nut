@@ -12,7 +12,7 @@ global function OnWeaponNpcPrimaryAttack_titanweapon_shoulder_rockets
 //----------------------
 
 const SHOULDERROCKETS_NUM_ROCKETS_PER_SHOT 		= 1
-const float SHOULDERROCKETS_MISSILE_SPEED 		= 1000.0
+const float SHOULDERROCKETS_MISSILE_SPEED 		= 2500.0
 const SHOULDERROCKETS_APPLY_RANDOM_SPREAD 		= true
 const SHOULDERROCKETS_LAUNCH_OUT_TIME 			= 0.2
 const SHOULDERROCKETS_LAUNCH_IN_LERP_TIME 		= 0.0

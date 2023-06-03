@@ -110,7 +110,10 @@ WeaponData
 		}
 		pas_ronin_weapon
 		{
-			"projectile_ricochet_max_count"					"1"
+			"projectile_ricochet_max_count"					"100" // Arbitrarily large
+			"projectile_damage_reduction_per_bounce"		"-20"
+			"projectile_damages_owner"						"0"
+			"projectile_speed_reduction_factor"				"0.0"
 		}
 	}
 }

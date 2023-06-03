@@ -1,10 +1,23 @@
-global const TITAN_REBALANCE_VERSION = "1.0.0"
+global const TITAN_REBALANCE_VERSION = "1.0.1"
 // Data structure: "titan","id","name","summary","details"
 global array <array <string> > titanData = [
 
 //     [
 //         "", "", "", "", ""
 //     ],
+
+    // General
+    [
+        "general", "dash", "Legion/Scorch Dash", "Legion and Scorch now dash slightly more often.",
+        "- Cooldown 10s > 8"
+    ],[
+        "general", "assault", "Assault Chip", "Assault Chip builds core faster the more damaged your titan is.",
+        "- Additional effect: build core faster the more damaged your titan is"
+    ],[
+        "general", "counter", "Counter Ready", "Counter Ready makes electric smoke reusable."
+        "- Turns electric smoke into a reusable ability" + "\n" +
+        "- Cooldown 20s"
+    ],
 
     // Ion
     [
@@ -16,16 +29,22 @@ global array <array <string> > titanData = [
         "- Activation requires minimum 150 energy" + "\n" +
         "- Usage cost reduced 2 > 1.2"
     ],[
-        "ion", "tripwire", "Laser Tripwire", "Tripwire costs less than half energy."
+        "ion", "tripwire", "Laser Tripwire", "Tripwire cost reduced to less than half."
+        "- Now has damage falloff" + "\n" +
         "- Energy cost 35 > 15"
     ],[
-        "ion", "zeropoint", "Zero-Point Tripwire", "Zero-Point costs a tiny amount of energy, deploys a smol version of the tripwire."
+        "ionkit", "zeropoint", "Zero-Point Tripwire", "Zero-Point costs a tiny amount of energy, and is able to deploy two wires."
         "- Now costs energy (7.5)" + "\n" +
-        "- Faster cooldown 10s > 6s" + "\n" +
-        "- Only two pylons" + "\n" +
+        "- Slower cooldown 10s > 16s" + "\n" +
+        "- Two charges, each deploying two pylons" + "\n" +
         "- Damage 1500 > 800"
     ],[
-        "ion", "refraction", "Refraction Lens", "Refraction Lens kit no longer costs extra energy."
+        "ionkit", "vortex", "Vortex Amplifier", "Amplified Vortex shield costs more to activate, but can absorb more."
+        "- Activation cost increased 50 > 75" + "\n" +
+        "- Vortex shield drains slower" + "\n" +
+        "- Impact drain is lower"
+    ],[
+        "ionkit", "refraction", "Refraction Lens", "Refraction Lens kit no longer costs extra energy."
         "- No longer costs extra energy" + "\n" +
         "- Also benefits from the cost reduction"
     ],
@@ -39,18 +58,22 @@ global array <array <string> > titanData = [
         "- Magazine size reduced 12 > 9" + "\n" +
         "- Lock lifetime 15s > 10s"
     ],[
-        "tone", "particlewall","Particle Wall", "Summary.",
+        "tone", "particlewall","Particle Wall", "Particle wall health and duration is reduced.",
         "- Health reduced 2000 > 1400" + "\n" +
         "- Duration reduced 6s > 5s"
     ],[
-        "tone", "reinforced","Reinforced Particel Wall", "Summary.",
+        "tonekit", "reinforced","Reinforced Particel Wall", "Reinforced Particle wall health and duration is reduced. Cooldown is faster.",
         "- Duration reduced 9s > 8s" + "\n" +
         "- Health reduced 3000 > 2000" + "\n" +
         "- Cooldown reduced 14s > 10s"
     ],[
-        "tone", "burst","Burst Loader", "The Burst Loader no longer nerfs fire-rate.",
+        "tonekit", "burst","Burst Loader", "The Burst Loader no longer nerfs fire-rate.",
         "- Burst rate 5 > 9" + "\n" +
         "- Normal fire rate is no longer reduced"
+    ],[
+        "tonekit", "tracker","Enhanced Tracker", "Enhanced Tracker applies a debuff, causing the next hit to provide two locks.",
+        "- A hit applies a debuff, causing next hit to provide two locks" + "\n" +
+        "- Lasts 1 second"
     ],
 
     // Ronin
@@ -67,12 +90,23 @@ global array <array <string> > titanData = [
         "- Damage reduced 2200 > 2000" + "\n" +
         "- Dash regen reduced 6.5x > 4.5x" + "\n" +
         "- Duration 12s > 10s"
+    ],[
+        "roninkit", "ricochet","Ricochet Rounds", "Ricochet Rounds bounce towards enemies.",
+        "- Removed projectile speed reduction" + "\n" +
+        "- Projectiles now bounce more, and towards nearby enemies" + "\n" +
+        "- Bounced projectiles have 20% damage reduction"
+    ],[
+        "roninkit", "highlander","Highlander", "The Highlander kit provides an arc/phase cooldown boost on sword hit.",
+        "- No longer extends core duration" + "\n" +
+        "- Successful sword hits provide 20% cooldown bonus for arc wave and phase dash" + "\n" +
+        "- Additional 20%, for a total of 40%, during sword core"
     ],
 
     // Northstar
     [
         "northstar", "railgun", "Railgun", "Railgun reloads faster, charge damage is reduced.",
-        "- Base damage increased 250 > 300" + "\n" +
+        "- Fire rate increased 0.9 > 1.2" + "\n" +
+        "- Base damage increased 250 > 400" + "\n" +
         "- Charge damage decreased 300 > 200" + "\n" +
         "- Reload time decreased 2s > 1.8s"
     ],[
@@ -81,6 +115,12 @@ global array <array <string> > titanData = [
         "- Fire rate increased 12 > 15" + "\n" +
         "- Landing/Take-off time decreased 1s > 0.6s" + "\n" +
         "- Rocket speed increased 2000 > 2750"
+    ],[
+        "northstar", "tether","Tether Trap", "Tether trap now activates quicker after deployment and applies stun.",
+        "- Activation delay 1.5s > 0.6s" + "\n" +
+        "- Trigger range 350 > 420" + "\n" +
+        "- Applies stun for 1s"
+
     ],
 
     // Legion
@@ -94,10 +134,13 @@ global array <array <string> > titanData = [
         "- Health increased 2500 > 3500" + "\n" +
         "- Duration 6s > 8s"
     ],[
-        "legion", "bulwark","Bulwark", "Bulwark makes the Gun Shield last an additional 2 seconds.",
+        "legionkit", "bulwark","Bulwark", "Bulwark makes the Gun Shield last an additional 2 seconds.",
         "- Increased duration 8s > 10s"
     ],[
-        "legion", "ammokit","Ammo", "The Ammo kit gives even more ammo.",
+        "legionkit", "lightweight","Lightweight Alloys kit", "Lightweight Alloys allows even faster movement.",
+        "- ADS movement speed increased 0.75 > 1.0"
+    ],[
+        "legionkit", "ammokit","Ammo", "The Ammo kit gives even more ammo.",
         "- Ammo increased 140 > 200"
     ],
 
@@ -109,24 +152,51 @@ global array <array <string> > titanData = [
         "- Reload is segmented (like mastiff)" + "\n" +
         "- Projectile speed: 2200 > 2750" + "\n" +
         "- Projectile gravity: 0.625 > 0.977 (preserves arc)" + "\n" +
-        "- ADS spread removed"
+        "- ADS spread removed" + "\n" +
+        "- Thermite lifetime 2.0-2.5s > 1.0-1.15s"
+    ],[
+        "scorch", "heatshield","Thermal Shield", "The heat shield can be used more often.",
+        "- DPS reduced 2000 > 1800" + "\n" +
+        "- Reduce cooldown 8s > 7s" + "\n" +
+        "- Size increased 120 > 140"
+    ],[
+        "scorch", "firewall","Firewall", "The firewall goes out a second sooner.",
+        "- Fire duration 5.2s > 4s"
+    ],[
+        "scorch", "gascanister","Gas Canister", "The Gas Canister duration is reduced, but it has a faster cooldown.",
+        "- Gas duration 12 > 10" + "\n" +
+        "- Fire duration 5.2s > 5s" + "\n" +
+        "- Cooldown 15s > 13s"
+    ],[
+        "scorchkit", "inferno","Inferno Shield", "The inferno kit cooldown penalty is reduced.",
+        "- Reduce cooldown penalty 50% > 20%"
+    ],[
+        "scorchkit", "fuelforthefire","Fuel for the Fire", "Fuel for the Fire allows deploying three smaller gas canisters.",
+        "- Gas Canister gets an additional charge" + "\n" +
+        "- Cooldown per canister 6s > 5s"
+    ],[
+        "scorchkit", "scorchedearth","Scorched Earth", "Scorched Earth now extends the fire duration of all abilities.",
+        "- Extend fire duration of all abilities 4s > 5.2s" + "\n" +
+        "- Essentially restores the vanilla fire duration"
     ],
 
     // Monarch
     [
         "monarch", "xo16", "XO-16", "The XO-16 now fires projectiles.",
-        "- Converted to projectile"
+        "- Pilot damage reduced 3 hit > 4 hit / 45 > 33 / 40 > 19" + "\n" +
+        "- Falloff 1200 > 1000 / 1800 > 1800"
     ],[
         "monarch", "energysiphon", "Energy Siphon", "Energy Siphon provides only 500 shields.",
         "- Shields gained 750 > 500"
     ],[
         "monarch", "rocketsalvo","Rocket Salvo", "Rocket Salvo damage is increased.",
-        "- Damage increased 250 > 300"
+        "- Damage increased 250 > 300" + "\n" +
+        "- Rocket speed increased 1000 > 2500"
     ],[
-        "monarch", "energythief","Energy Thief", "Energy Thief only provides shields, not a battery.",
-        "- No longer provides a battery, instead gives 1000 shield"
+        "monarchkit", "energythief","Energy Thief", "Energy Thief only provides shields, not a battery.",
+        "- No longer provides a battery, instead only restores shield"
     ],[
-        "monarch", "amplifier","Shield Amplifier", "Shield Amplifier now gives double shields.",
+        "monarchkit", "amplifier","Shield Amplifier", "Shield Amplifier now gives double shields.",
         "- Bonus shields provided 25% > 100% (1000)"
     ],
 
@@ -142,7 +212,7 @@ global array <array <string> > titanData = [
     ],[
         "upgradecore", "energytransfer","Energy Transfer", "Energy transfer now gives the user shields, too.",
         "- Hitting a teammate grants them 750 shields" + "\n" +
-        "- Also grants the user 300 shields"
+        "- Also grants the user 500 shields"
     ],[
         "upgradecore", "maelstrom","Maelstrom", "Maelstrom damage bonus is only double, not triple.",
         "- Titan damage bonus reduced: 3x > 2x"

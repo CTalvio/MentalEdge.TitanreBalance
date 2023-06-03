@@ -212,7 +212,7 @@ WeaponData
 			"damage_near_value_titanarmor"					"2000"
 			"damage_far_value_titanarmor"					"2000"
 			"damage_near_distance"							"800"
-			"damage_far_distance" 							"1600"
+			"damage_far_distance" 							"1400"
 			"anim_alt_idleAttack"							"1"
 			"fire_rate"										"1.0"
 			"reload_enabled"								"0"
@@ -349,7 +349,7 @@ WeaponData
 		}
 		pas_legion_spinup
 		{
-			"ads_move_speed_scale"							"0.75"
+			"ads_move_speed_scale"							"1.0"
 		}
 		fd_piercing_shots
 		{

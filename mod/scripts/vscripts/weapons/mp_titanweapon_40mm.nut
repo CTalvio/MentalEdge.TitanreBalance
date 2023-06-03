@@ -37,11 +37,12 @@ void function MpTitanweapon40mm_Init()
 	#if SERVER
 		PrecacheModel( TITAN_40MM_SHELL_EJECT )
 		AddDamageCallbackSourceID( eDamageSourceId.mp_titanweapon_sticky_40mm, Tracker40mm_DamagedTarget )
+		AddCallback_OnTitanBecomesPilot( BurstLoaderClear )
 	#endif
 
 	RegisterSignal("TrackerRocketsFired")
 	RegisterSignal("DisembarkingTitan")
-
+	RegisterSignal( "EnhancedTrackerFired" )
 }
 
 void function OnWeaponDeactivate_titanweapon_40mm( entity weapon )
@@ -72,7 +73,6 @@ int function FireWeaponPlayerAndNPC( WeaponPrimaryAttackParams attackParams, boo
 		if ( attackParams.burstIndex == 0 )
 		{
 			int level = weapon.GetWeaponChargeLevel()
-
 			weapon.SetWeaponBurstFireCount( maxint( 1, level ) )
 		}
 	}
@@ -88,6 +88,7 @@ int function FireWeaponPlayerAndNPC( WeaponPrimaryAttackParams attackParams, boo
 	if ( shouldCreateProjectile )
 	{
 		float speed = PROJECTILE_SPEED_40MM
+		float gravity = 0.05
 
 		bool hasMortarShotMod = weapon.HasMod( "mortar_shots" )
 		if( hasMortarShotMod )
@@ -107,13 +108,37 @@ int function FireWeaponPlayerAndNPC( WeaponPrimaryAttackParams attackParams, boo
 			}
 			else
 			{
-				bolt.kv.gravity = 0.05
+				bolt.kv.gravity = gravity
 			}
 		}
+
+        if ( weapon.HasMod( "pas_tone_weapon_on" ) )
+        {
+			weapon.Signal( "EnhancedTrackerFired" )
+			weapon.RemoveMod( "pas_tone_weapon_on" )
+			weapon.EmitWeaponSound_1p3p( "Weapon_40mm_Fire_Amped_1P", "Weapon_40mm_Fire_Amped_3P" )
+        }
 	}
 
 	weapon.w.lastFireTime = Time()
+
 	return 1
+}
+
+void function LTSRebalance_Drain40mmCharge( entity weapon )
+{
+	weapon.SetWeaponChargeFractionForced( 0.0 )
+	WaitEndFrame() // Charge doesn't get set to 0 if only firing 1 shot and ADSing for some reason
+	if ( IsValid( weapon ) )
+		weapon.SetWeaponChargeFractionForced( 0.0 )
+}
+
+void function OnWeaponReload_titanweapon_40mm( entity weapon, int milestone )
+{
+	#if SERVER
+	if ( weapon.IsChargeWeapon() )
+		weapon.SetWeaponChargeFractionForced( 0 )
+	#endif
 }
 
 
@@ -183,13 +208,12 @@ void function OnWeaponOwnerChanged_titanweapon_40mm( entity weapon, WeaponOwnerC
 void function OnProjectileCollision_titanweapon_sticky_40mm( entity projectile, vector pos, vector normal, entity hitEnt, int hitbox, bool isCrit )
 {
 	#if SERVER
-	entity owner = projectile.GetOwner()
-	if ( !IsAlive( owner ) )
-		return
-
 	array<string> mods = projectile.ProjectileGetMods()
-	if ( mods.contains( "pas_tone_weapon" ) && isCrit )
+	entity owner = projectile.GetOwner()
+	if ( mods.contains( "pas_tone_weapon_on" ) ){
+		EmitSoundAtPosition( TEAM_UNASSIGNED, projectile.GetOrigin(), "explo_40mm_splashed_impact_3p")
  		ApplyTrackerMark( owner, hitEnt )
+	}
 	#endif
 }
 
@@ -340,6 +364,41 @@ void function Tracker40mm_DamagedTarget( entity ent, var damageInfo )
 
  	ApplyTrackerMark( attacker, ent )
 
+    int flags = DamageInfo_GetCustomDamageType( damageInfo )
+    entity projectile = DamageInfo_GetInflictor( damageInfo )
+	array<string> mods = projectile.ProjectileGetMods()
+
+    if ( mods.contains( "pas_tone_weapon_on" ) )
+	{
+		if ( flags & DF_IMPACT )
+        	ApplyTrackerMark( attacker, ent )
+	}
+	else if ( mods.contains( "pas_tone_weapon" ) && attacker.GetMainWeapons().len() > 0 )
+	{
+		entity weapon = attacker.GetMainWeapons()[0]
+		if ( IsValid( weapon ) && ent.IsTitan() )
+			thread Give_pas_tone_weapon_buff( weapon )
+	}
+}
+
+void function Give_pas_tone_weapon_buff( entity weapon )
+{
+	weapon.EndSignal( "OnDestroy" )
+	weapon.EndSignal( "EnhancedTrackerFired" )
+
+	weapon.AddMod( "pas_tone_weapon_on" )
+	wait 1
+	weapon.RemoveMod( "pas_tone_weapon_on" )
+}
+
+void function BurstLoaderClear( entity player, entity titan )
+{
+	if ( titan.GetMainWeapons().len() > 0 )
+	{
+		entity mainWeapon = titan.GetMainWeapons()[0]
+		if ( mainWeapon.HasMod( "pas_tone_burst" ) )
+			mainWeapon.SetWeaponChargeFractionForced( 0.0 )
+	}
 }
 #endif
 
@@ -367,13 +426,31 @@ bool function OnWeaponChargeLevelIncreased_titanweapon_sticky_40mm( entity weapo
 //First sound
 void function OnWeaponStartZoomIn_titanweapon_sticky_40mm( entity weapon )
 {
-	if ( weapon.HasMod( "pas_tone_burst") && weapon.IsReadyToFire() )
-		weapon.EmitWeaponSound( "weapon_40mm_burstloader_leveltick_1" )
+	if ( weapon.IsReadyToFire() )
+	{
+		if ( weapon.HasMod( "pas_tone_burst" ) )
+		{
+			if ( weapon.GetWeaponChargeFraction() < 0.33 )
+			{
+				weapon.SetWeaponChargeFractionForced( 0.33 ) // Doing this instead of using 2 charge levels to get the reticle to cooperate
+				weapon.EmitWeaponSound( "weapon_40mm_burstloader_leveltick_1" )
+			}
+		}
+	}
 }
 
 //First Sound
 void function OnWeaponReadyToFire_titanweapon_sticky_40mm( entity weapon )
 {
-	if ( weapon.HasMod( "pas_tone_burst") && weapon.IsWeaponInAds() && weapon.GetWeaponPrimaryClipCount() > 0 )
-		weapon.EmitWeaponSound( "weapon_40mm_burstloader_leveltick_1" )
+	if ( weapon.IsWeaponInAds() && weapon.GetWeaponPrimaryClipCount() > 0 )
+    {
+		if ( weapon.HasMod( "pas_tone_burst" )  )
+		{
+			if ( weapon.GetWeaponChargeFraction() < 0.33 )
+			{
+				weapon.SetWeaponChargeFractionForced( 0.33 ) // Doing this instead of using 2 charge levels to get the reticle to cooperate
+				weapon.EmitWeaponSound( "weapon_40mm_burstloader_leveltick_1" )
+			}
+		}
+    }
 }

@@ -32,7 +32,7 @@ void function SwordCore_OnPlayedOrNPCKilled( entity victim, entity attacker, var
 		return
 
 	float curTime = Time()
-	float highlanderBonus = 8.0
+	float highlanderBonus = 0.0
 	float remainingTime = highlanderBonus + soul.GetCoreChargeExpireTime() - curTime
 	float duration = soul.GetCoreUseDuration()
 	float coreFrac = min( 1.0, remainingTime / duration )

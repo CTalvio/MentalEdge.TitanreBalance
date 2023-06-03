@@ -21,29 +21,120 @@ WeaponData
 	active_crosshair_count				"1"
 	rui_crosshair_index					"0"
 
-	RUI_CrosshairData
+	Mods
 	{
-		DefaultArgs
+		shield_only
 		{
-			adjustedSpread				weapon_spread
-			adsFrac 					player_zoomFrac
-			isSprinting					player_is_sprinting
-			isReloading					weapon_is_reloading
-			teamColor					crosshair_team_color
-			isAmped						weapon_is_amped
-			crosshairMovementX          crosshair_movement_x
-			crosshairMovementY          crosshair_movement_y
-			chargeFrac                  shared_energy_frac
+			"charge_time" 									"20.0"
+			"charge_cooldown_time"							"6.0"
+			"charge_cooldown_delay"   						"2.0"
+			"deploy_time" 									"0.25"
 		}
 
-		Crosshair_1
+		vortex_extended_effect_and_no_use_penalty
 		{
-			"ui"						"ui/crosshair_vortex"
-			"base_spread"				"3.0"
-			Args
-			{
-				isFiring				weapon_is_firing
-			}
+			"charge_time" 									"20.0"
+			"charge_cooldown_time"							"6.0"
+			"charge_cooldown_delay"   						"2.0"
+		}
+
+		pas_defensive_core
+		{
+			"charge_time" 									"1.0++"
+			"charge_cooldown_delay"   						"*0.75"
+			"charge_cooldown_time"							"*0.75"
+		}
+
+		unlimited_charge_time
+		{
+			"charge_time" 									"999"
+			"charge_cooldown_time"							"0.0"
+			"charge_cooldown_delay"   						"0.0"
+		}
+
+		slow_recovery_vortex
+		{
+			// "charge_require_input"							"0"
+			"charge_cooldown_time"							"3.0"
+			"charge_cooldown_delay"   						"0.5"
+			"charge_time" 									"4.0"
+		}
+
+		npc_normal_difficulty
+		{
+			"proficiency_poor_additional_rest"					"30"
+			"proficiency_average_additional_rest"				"30"
+		}
+
+		dev_mod_low_recharge
+		{
+			"charge_time" 									"999"
+			"charge_cooldown_time"							"0.0"
+			"charge_cooldown_delay"   						"0.0"
+		}
+
+		burn_mod_titan_vortex_shield
+		{
+			"is_burn_mod"									"1"
+			"tracer_effect"   								"weapon_tracers_vortex_mod"
+			"tracer_effect_first_person"  					"weapon_tracers_vortex_mod"
+		}
+
+		sur_level_0
+		{
+			"charge_cooldown_time"							"*1.5"
+			"damage_near_value"   							"*0.75"
+			"damage_far_value"								"*0.75"
+			"damage_near_value_titanarmor"					"*0.75"
+			"damage_far_value_titanarmor" 					"*0.75"
+			"explosion_damage"								"*0.75"
+			"explosion_damage_heavy_armor"					"*0.75"
+		}
+		sur_level_1
+		{
+			"charge_cooldown_time"							"*0.7"
+			"damage_near_value"   							"*1.4"
+			"damage_far_value"								"*1.4"
+			"damage_near_value_titanarmor"					"*1.4"
+			"damage_far_value_titanarmor" 					"*1.4"
+			"explosion_damage"								"*1.4"
+			"explosion_damage_heavy_armor"					"*1.4"
+		}
+		sur_level_2
+		{
+			"charge_cooldown_time"							"*0.7"
+			"damage_near_value"   							"*1.4"
+			"damage_far_value"								"*1.4"
+			"damage_near_value_titanarmor"					"*1.4"
+			"damage_far_value_titanarmor" 					"*1.4"
+			"explosion_damage"								"*1.4"
+			"explosion_damage_heavy_armor"					"*1.4"
+		}
+		sur_level_3
+		{
+			"charge_cooldown_time"							"*0.7"
+			"damage_near_value"   							"*1.4"
+			"damage_far_value"								"*1.4"
+			"damage_near_value_titanarmor"					"*1.4"
+			"damage_far_value_titanarmor" 					"*1.4"
+			"explosion_damage"								"*1.4"
+			"explosion_damage_heavy_armor"					"*1.4"
+		}
+		pas_ion_vortex
+		{
+			"damage_near_value"   							"*1.35"
+			"damage_far_value"								"*1.35"
+			"damage_near_value_titanarmor"					"*1.35"
+			"damage_far_value_titanarmor" 					"*1.35"
+			"explosion_damage"								"*1.35"
+			"explosion_damage_heavy_armor"					"*1.35"
+			"shared_energy_charge_cost"						"1.0"
+		}
+		sp_wider_return_spread
+		{
+			"spread_stand_hip"  							"30"
+			"spread_stand_ads"   							"30"
 		}
 	}
+
 }

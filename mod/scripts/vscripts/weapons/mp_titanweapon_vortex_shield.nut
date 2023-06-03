@@ -25,6 +25,7 @@ global function OnClientAnimEvent_titanweapon_vortex_shield
 const ACTIVATION_COST_FRAC = 0.05 //0.2 //R1 was 0.1
 const int ION_MINIMUM_ENERGY = 150
 const int ION_ACTIVATION_ENERGY_COST = 50
+global const float PAS_ION_VORTEX_AMP = 1.35
 
 function MpTitanweaponVortexShield_Init()
 {
@@ -361,7 +362,10 @@ bool function OnWeaponChargeBegin_titanweapon_vortex_shield( entity weapon )
 	// just for players
 	if ( weaponOwner.IsPlayer() )
 	{
-		weaponOwner.TakeSharedEnergy( ION_ACTIVATION_ENERGY_COST )
+		if( weapon.HasMod( "pas_ion_vortex" ) )
+			weaponOwner.TakeSharedEnergy( ION_ACTIVATION_ENERGY_COST * 1.5 )
+		else
+			weaponOwner.TakeSharedEnergy( ION_ACTIVATION_ENERGY_COST )
 		PlayerUsedOffhand( weaponOwner, weapon )
 		StartVortex( weapon )
 	}

@@ -1,0 +1,57 @@
+WeaponData
+{
+	"damage_type" 									"burn"
+
+	"explosion_inner_radius"  						"50"
+	"explosionradius" 								"120"
+	"impulse_force"   								"1"
+
+    "damage_near_distance"							"800"
+    "damage_far_distance" 							"1200"
+    "damage_near_value"   							"900"
+    "damage_far_value"								"900"
+    "explosion_damage"								"100"
+    "explosion_damage_heavy_armor"					"250"
+
+	"ammo_stockpile_max"							"4"
+	"ammo_clip_size"   								"1"
+	"ammo_default_total"							"1"
+	"ammo_per_shot"									"1"
+	"ammo_min_to_fire"								"1"
+	"ammo_drains_to_empty_on_fire"					"0"
+	"ammo_no_remove_from_clip"						"1"
+
+	// Regen Ammo
+	"regen_ammo_refill_rate"						"5"
+	"regen_ammo_refill_start_delay"					"0.0"
+
+	// Behavior
+	"fire_rate"   									"1"
+	"reload_time" 									"1"
+	"holster_time"									"0.01"
+	"deploy_time" 									"0.01"
+	"lower_time"  									"0.01"
+	"raise_time"  									"0.01"
+	"vortex_refire_behavior"  						"rocket"
+	"allow_empty_fire"								"0"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+
+
+	Mods
+	{
+		maelstrom
+		{
+			"hud_icon"										"rui/titan_loadout/passive/monarch_core_maelstrom"
+		}
+		counter_ready
+		{
+			"fire_rate"   									"0.05"
+			"reload_enabled"								"0"
+			"ammo_stockpile_max"							"1"
+			"ammo_no_remove_from_clip"						"0"
+			"regen_ammo_refill_rate"						"0.05"
+		}
+	}
+}

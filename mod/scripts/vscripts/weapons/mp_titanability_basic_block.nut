@@ -234,7 +234,7 @@ float function HandleBlockingAndCalcDamageScaleForHit( entity blockingEnt, var d
 		else
 			weapon.SetWeaponPrimaryClipCount( 0 )
 
-		if( currentAmmo < maxAmmo*0.75 && weapon.GetWeaponOwner().IsPlayer() )
+		if( currentAmmo < maxAmmo*0.85 && weapon.GetWeaponOwner().IsPlayer() )
 			SendHudMessage( weapon.GetWeaponOwner(), "SWORD INTEGRITY: " + (20 + (80*(1-exponent)).tointeger()) + "%" , -1, 0.35, 255, 100, 100, 255, 0.0, 3, 1 )
 
 		return TITAN_BLOCK_DAMAGE_REDUCTION + ( 0.6 * exponent )

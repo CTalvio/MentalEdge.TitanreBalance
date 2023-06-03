@@ -1,26 +1,5 @@
 WeaponData
 {
-	"OnWeaponPrimaryAttack"							"OnWeaponPrimaryAttack_titanweapon_xo16"
-	"OnWeaponNpcPrimaryAttack"						"OnWeaponNpcPrimaryAttack_titanweapon_xo16"
-
-	"projectilemodel" 								"models/weapons/bullets/projectile_arl.mdl"
-	"projectile_trail_effect_0" 					"P_mastiff_proj"
-
-	"bolt_gravity_enabled"							"0"
-	"projectile_launch_speed"						"10000"
-	"projectile_gravity_scale"						"0.0001"
-
-	"bolt_hitsize"									"0.0"
-	"bolt_hitsize_grow1_time"						"0.075"
-	"bolt_hitsize_grow1_size"						"1.0"
-	"bolt_hitsize_grow2_time"						"0.18"
-	"bolt_hitsize_grow2_size"						"2.0"
-	"bolt_hitsize_growfinal_lerptime"				"0.18"
-	"bolt_hitsize_growfinal_size"					"2.0"
-
-	// Network
-	"net_optimize"		                            "0"
-
 	// Damage - When Used by Players
 	"damage_type" 									"bullet"
 
@@ -30,10 +9,10 @@ WeaponData
 
 	"enable_highlight_networking_on_creation"		"1"
 
-	"damage_near_distance"							"1200"
+	"damage_near_distance"							"1000"
 	"damage_far_distance" 							"1800"
-	"damage_near_value"   							"45"
-	"damage_far_value"								"40"
+	"damage_near_value"   							"33"
+	"damage_far_value"								"19"
 	"damage_near_value_titanarmor"					"120"
 	"damage_far_value_titanarmor" 					"100"
 

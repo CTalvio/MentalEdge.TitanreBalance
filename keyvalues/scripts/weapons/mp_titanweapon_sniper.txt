@@ -9,16 +9,16 @@ WeaponData
 		// Damage - When Used by Players
 		"damage_near_distance"							"800"
 		"damage_far_distance" 							"3000"
-		"damage_near_value"   							"300"
-		"damage_far_value"								"300"
-		"damage_near_value_titanarmor"					"300"
-		"damage_far_value_titanarmor" 					"300"
+		"damage_near_value"   							"400"
+		"damage_far_value"								"400"
+		"damage_near_value_titanarmor"					"400"
+		"damage_far_value_titanarmor" 					"400"
 	}
 
 	"ammo_no_remove_from_stockpile"					"1"
 
 	// Behavior
-	"fire_rate"   									"0.9"
+	"fire_rate"   									"1.2"
 	"zoom_time_in"									"0.2"
 	"zoom_time_out"   								"0.2"
 	"zoom_fov"										"50"
@@ -165,36 +165,6 @@ WeaponData
 		fd_upgrade_crit
 		{
 			"critical_hit_damage_scale"						"2.0"
-		}
-	}
-
-	active_crosshair_count				"1"
-	rui_crosshair_index					"0"
-
-	RUI_CrosshairData
-	{
-		DefaultArgs
-		{
-			adjustedSpread				weapon_spread
-			adsFrac 					player_zoomFrac
-			isSprinting					player_is_sprinting
-			isReloading					weapon_is_reloading
-			readyFrac                   progress_ready_to_fire_frac
-			teamColor					crosshair_team_color
-			isAmped						weapon_is_amped
-			chargeFrac                  player_chargeFrac
-			crosshairMovementX          crosshair_movement_x
-			crosshairMovementY          crosshair_movement_y
-		}
-
-		Crosshair_1
-		{
-			"ui"						"ui/crosshair_titan_sniper"
-			"base_spread"				"10.0"
-			Args
-			{
-				isFiring				weapon_is_firing
-			}
 		}
 	}
 }

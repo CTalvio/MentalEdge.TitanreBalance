@@ -1,6 +1,6 @@
 global function TitanTipsInit
 
-int titan = 0
+int titanKit = 0
 int id = 1
 int name = 2
 int summary = 3
@@ -14,7 +14,16 @@ array<string> goodToKnowList = [
 "Sword Block can't protect Ronin forever, effectivenss fades with damage.",
 "Tone's cannon now does more damage, but getting target locks is trickier.",
 "Legion's Gun Shield covers a larger angle, and has more health.",
-"The Thermite Launcher can now hold and fire two rounds."
+"The Thermite Launcher can now hold and fire two rounds.",
+"Legion and Scorch can dash more often.",
+"The Assault chip has an additional effect, bonus core meter the more damaged your titan is.",
+"Counter Ready turns electric smoke into a re-usable ability.",
+"Tone's Burst Loader no longer has a fire rate debuff.",
+"Tone's Enhanced Tracker kit, makes any two consequtive hits, provide three locks.",
+"Ronin's Highlander kit does not extend sword core, instead it boosts ability cooldowns when using the sword.",
+"Scorch's Fuel for the Fire kit provides a third gas canister.",
+"Monarch's Energy Thief kit only provides shields, not a battery.",
+"Monarch's Shield Amplifier kit now doubles shields gained when using Siphon."
 ]
 
 
@@ -37,16 +46,38 @@ void function TitanTipsInit(){
 
 void function Playing(){
     printl("[REBALANCETIPS] Titan rebalance tips enabled")
-    AddCallback_OnPilotBecomesTitan( TitanTipsThread )
+    AddSpawnCallback( "npc_titan", TitanTipsOnDrop )
+    AddCallback_OnPilotBecomesTitan( TitanTipsOnEmbark )
 }
 
-void function TitanTipsThread(entity player, entity titan){
-    if ( !IsValid(player) || !IsAlive(player) || !player.IsTitan() ) {
-        printl("[REBALANCETIPS] Interrupted, player no longer needs tips")
+void function TitanTipsOnDrop(entity titan){
+    thread TitanTipsOnDropThread(titan)
+}
+void function TitanTipsOnDropThread(entity titan){
+    wait 5.8
+    if( !IsValid( titan ) )
         return
-    }
+	entity soul = titan.GetTitanSoul()
+	if( !IsValid( soul ) )
+		return
+	entity player = soul.GetBossPlayer()
+    if( !IsValid( player ) || !IsAlive(player) )
+		return
+
     if (alreadySentTips.find(player.GetPlayerName()) == -1){
-        NSSendInfoMessageToPlayer(player, "Titans on this server are rebalanced. Use the !titans command to see changes.")
+        NSSendInfoMessageToPlayer(player, "Titans on this server are rebalanced. Check chat for change info, or use the !titans command to see all changes.")
+        alreadySentTips.append(player.GetPlayerName())
+    }
+    string playerTitan = GetActiveTitanLoadout( player ).titanClass
+    if (alreadySentTips.find(playerTitan+player.GetPlayerName()) == -1){
+        provideTitan(player)
+        alreadySentTips.append(playerTitan+player.GetPlayerName())
+    }
+}
+
+void function TitanTipsOnEmbark(entity player, entity titan){
+    if (alreadySentTips.find(player.GetPlayerName()) == -1){
+        NSSendInfoMessageToPlayer(player, "Titans on this server are rebalanced. Check chat for change info, or use the !titans command to see all changes.")
         alreadySentTips.append(player.GetPlayerName())
     }
     string playerTitan = GetActiveTitanLoadout( player ).titanClass
@@ -57,6 +88,7 @@ void function TitanTipsThread(entity player, entity titan){
 }
 
 void function provideTitan(entity player){
+
     array <int> itemIndex = []
 
     if ( !IsValid(player) || !IsAlive(player) ) {
@@ -67,9 +99,11 @@ void function provideTitan(entity player){
     }
 
     string playerTitan = GetActiveTitanLoadout( player ).titanClass
+    if( playerTitan == "vanguard" )
+        playerTitan = "monarch"
 
     for(int i = 0; i < titanData.len(); i++){
-        if( titanData[i][titan] == playerTitan ){
+        if( titanData[i][titanKit] == playerTitan ){
             itemIndex.append(i)
         }
     }
@@ -161,7 +195,7 @@ void function provideTypeSummary(entity player, string arg){
     }
 
     for(int i = 0; i < titanData.len(); i++){
-        if( titanData[i][titan] == selectedType ){
+        if( titanData[i][titanKit] == selectedType || titanData[i][titanKit] == selectedType + "kit" ){
             itemIndex.append(i)
         }
     }

@@ -1,7 +1,3 @@
-/* LTS Rebalance replaces this file for the following reasons:
-   1. Implement baseline changes
-   2. Implement Perfect Kits Twin Traps
-*/
 untyped
 
 
@@ -14,7 +10,6 @@ global function FireTether
 #if SERVER
 global function OnWeaponNpcPrimaryAttack_weapon_tether
 global function ProximityTetherThink
-global function LTSRebalance_DispelTetherSlow
 #endif // #if SERVER
 
 const TETHER_MINE_FX = $"wpn_grenade_TT_mag"
@@ -23,10 +18,8 @@ const TETHER_ROPE_MODEL = "cable/tether.vmt"
 const TETHER_3P_MODEL = $"models/weapons/caber_shot/caber_shot_thrown_xl.mdl"
 const TETHER_1P_MODEL = $"models/weapons/caber_shot/caber_shot_tether_xl.mdl"
 
-const float LTSREBALANCE_TWIN_TRAPS_ACTIVATION_MOD = .33
-const float LTSREBALANCE_TWIN_TRAPS_RANGE_MOD = 1.25
-const float LTSREBALANCE_TRAP_SLOW_DURATION = 1.5
-const float LTSREBALANCE_TRAP_SLOW_FADE = 0.5
+const float REBALANCE_TRAP_SLOW_DURATION = 2
+const float REBALANCE_TRAP_SLOW_FADE = 0.5
 
 #if SERVER
 struct {
@@ -257,10 +250,7 @@ void function ProximityTetherThink( entity projectile, entity owner, bool isExpl
 	EmitSoundOnEntity( projectile, "Wpn_TetherTrap_Land" )
 	thread TrapExplodeOnDamage( projectile, 100, 0.0, 0.0 )
 
-	bool hasRebalTwin = projectile.ProjectileGetMods().contains( "pas_northstar_trap" )
-	float activationMod = hasRebalTwin ? LTSREBALANCE_TWIN_TRAPS_ACTIVATION_MOD : 1.0
-
-	wait 0.5 * activationMod // slight delay before activation
+	wait 0.2 // slight delay before activation
 
 	// PROTO_PlayTrapLightEffect( projectile, "BLINKER", projectile.GetTeam() )
 	entity enemyFX = PlayLoopFXOnEntity( TETHER_MINE_FX, projectile, "BLINKER", null, null, ENTITY_VISIBLE_TO_ENEMY )
@@ -273,7 +263,7 @@ void function ProximityTetherThink( entity projectile, entity owner, bool isExpl
 		local particleFX = StartParticleEffectOnEntity( projectile, fxid, FX_PATTACH_POINT_FOLLOW, attachID )
 	}
 
-	wait 1.0 * activationMod // slight delay before activation
+	wait 0.4 // slight delay before activation
 
 	float startTime = Time()
 	float TETHER_MINE_LIFETIME
@@ -301,8 +291,8 @@ void function ProximityTetherThink( entity projectile, entity owner, bool isExpl
 			if ( projectilePos.z > playerPos.z )
 				playerPos.z = min( player.EyePosition().z, projectilePos.z )
 
-			float range = 350.0 * ( hasRebalTwin ? LTSREBALANCE_TWIN_TRAPS_RANGE_MOD : 1.0 )
-			if ( DistanceSqr( playerPos, projectile.GetOrigin() ) > range * range )
+			// MENTALREBALANCE range was 350
+			if ( DistanceSqr( playerPos, projectile.GetOrigin() ) > 420 * 420 )
 				continue
 
 			enemyTitans.insert( 0, player )
@@ -351,9 +341,6 @@ void function ProximityTetherThink( entity projectile, entity owner, bool isExpl
 			// Applies slow and makes tether melee-able by Sword Core
 			LTSRebalance_ApplyTetherEffects( projectile, titan )
 
-			if ( titan.IsPlayer() && projectile.ProjectileGetMods().contains( "pas_northstar_trap" ) )
-				thread PerfectKits_TetherEMP( projectile, titan )
-
 			if ( titan.IsPlayer() )
 				thread TetherFlyIn( projectile, tetherEndEntForPlayer, tetherRopeForPlayer, owner )
 			thread TetherFlyIn( projectile, tetherEndEntForOthers, tetherRopeForOthers, owner )
@@ -372,7 +359,6 @@ void function ProximityTetherThink( entity projectile, entity owner, bool isExpl
 // Applies slow and makes tether melee-able by Sword Core
 void function LTSRebalance_ApplyTetherEffects( entity projectile, entity victim )
 {
-	
 	// Enables Sword Core melee damage, but prevents normal melee damage
 	// AddEntityCallback_OnDamaged( projectile, LTSRebalance_PreventNormalMeleeDamage )
 	// SetObjectCanBeMeleed( projectile, true )
@@ -393,11 +379,11 @@ void function LTSRebalance_ApplyTetherEffects( entity projectile, entity victim 
 		file.LTSRebalance_tetherTimes[ victim ] <- []
 
 	// Calculate stacking slow duration
-	float slowDuration = LTSREBALANCE_TRAP_SLOW_DURATION
+	float slowDuration = REBALANCE_TRAP_SLOW_DURATION
 	array<float> tetherTimes = file.LTSRebalance_tetherTimes[ victim ]
 	for ( int i = tetherTimes.len() - 1; i >= 0; i-- )
 	{
-		float remainingTime = tetherTimes[i] + LTSREBALANCE_TRAP_SLOW_DURATION - Time()
+		float remainingTime = tetherTimes[i] + REBALANCE_TRAP_SLOW_DURATION - Time()
 		if ( remainingTime < 0 ) // Remove deprecated slow times
 			tetherTimes.pop()
 		else                     // Add to slow duration sum
@@ -423,8 +409,8 @@ void function LTSRebalance_ApplyTetherEffects( entity projectile, entity victim 
 		tetherSlows = file.LTSRebalance_tetherSlows[ victim ]
 
 	// Add slow effects
-	tetherSlows.append( StatusEffect_AddTimed( victim, eStatusEffect.move_slow, 0.5, slowDuration, LTSREBALANCE_TRAP_SLOW_FADE ) )
-	tetherSlows.append( StatusEffect_AddTimed( victim, eStatusEffect.dodge_speed_slow, 0.5, slowDuration, LTSREBALANCE_TRAP_SLOW_FADE ) )
+	tetherSlows.append( StatusEffect_AddTimed( victim, eStatusEffect.move_slow, 0.5, slowDuration, REBALANCE_TRAP_SLOW_FADE ) )
+	tetherSlows.append( StatusEffect_AddTimed( victim, eStatusEffect.dodge_speed_slow, 0.5, slowDuration, REBALANCE_TRAP_SLOW_FADE ) )
 }
 
 void function LTSRebalance_DispelTetherSlow( entity victim )
@@ -480,26 +466,4 @@ float function GetTetherRopeLength( vector a, vector b )
 	return sqrt( HorzLength*HorzLength + distZ*distZ )
 }
 
-// Assumes the player passed in is a titan.
-void function PerfectKits_TetherEMP( entity projectile, entity player )
-{
-	projectile.EndSignal( "OnDestroy" )
-	player.EndSignal( "OnDestroy" )
-	player.EndSignal( "OnSyncedMelee" )
-	Remote_CallFunction_Replay( player, "ServerCallback_TitanEMP", 1, 10.0, 0.5 )
-	if ( !( "perfectKitsTetherCount" in player.s ) )
-		player.s.perfectKitsTetherCount <- 1
-	else
-		player.s.perfectKitsTetherCount += 1
-
-	OnThreadEnd(
-		function() : ( player )
-		{
-			player.s.perfectKitsTetherCount -= 1
-			if ( IsValid( player ) && player.s.perfectKitsTetherCount == 0 )
-				Remote_CallFunction_Replay( player, "ServerCallback_TitanEMP", 1, 0.0, 0.5 )
-		}
-	)
-	WaitForever()
-}
 #endif

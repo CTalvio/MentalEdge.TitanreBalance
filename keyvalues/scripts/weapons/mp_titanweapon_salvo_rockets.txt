@@ -6,15 +6,15 @@ WeaponData
 
 	// Ammo
 	"ammo_display"									"bar"
-	"ammo_stockpile_max"							"108"
-	"ammo_clip_size"   								"108"
-	"ammo_default_total"							"108"
-	"ammo_min_to_fire"								"108"
+	"ammo_stockpile_max"							"120"
+	"ammo_clip_size"   								"120"
+	"ammo_default_total"							"120"
+	"ammo_min_to_fire"								"120"
 	"cooldown_type"                                 "ammo_per_shot"
 	"reload_enabled"								"0"
 
 	// Regen Ammo
-	"regen_ammo_refill_rate"						"18.0"
+	"regen_ammo_refill_rate"						"20.0"
 	"regen_ammo_refill_start_delay"					"1.0"
 
 	"charge_time" 									"0.01"
@@ -31,7 +31,7 @@ WeaponData
 	MP_BASE
 	{
 		// Damage - When Used by Players
-		"ammo_per_shot"									"18"
+		"ammo_per_shot"									"20"
 		"burst_fire_count"								"6"
 		"damage_near_distance"							"800"
 		"damage_far_distance" 							"1200"
@@ -128,9 +128,9 @@ WeaponData
 		}
 		missile_racks
 		{
-			"ammo_per_shot"									"12"
+			"ammo_per_shot"									"13.33"
 			"burst_fire_count"								"9"
-			"regen_ammo_refill_rate"						"14"
+			"regen_ammo_refill_rate"						"15"
 			"ammo_min_to_fire"								"12"
 			"hud_icon"										"rui/titan_loadout/passive/monarch_core_missile_racks"
 		}

@@ -10,7 +10,7 @@ global function ServerCallback_PilotCreatedGunShield
 const FX_TITAN_GUN_SHIELD_VM = $"P_titan_gun_shield_FP"
 const FX_TITAN_GUN_SHIELD_WALL = $"P_titan_gun_shield_3P"
 const FX_TITAN_GUN_SHIELD_BREAK = $"P_xo_armor_break_CP"
-global const float TITAN_GUN_SHIELD_RADIUS = 120
+global const float TITAN_GUN_SHIELD_RADIUS = 130
 global const int TITAN_GUN_SHIELD_HEALTH = 3500
 global const int PAS_LEGION_SHEILD_HEALTH = 5000
 

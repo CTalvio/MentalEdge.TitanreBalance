@@ -1182,7 +1182,7 @@ void function TitanVsTitan_3p( SyncedMelee action, entity attacker, entity targe
 							Rodeo_GiveExecutingTitanABattery( attacker )
 						#else
 							if ( shouldApplyBatteryAfterRodeo )
-								attackerSoul.SetShieldHealth( min( attackerSoul.GetShieldHealth() + 1250, attackerSoul.GetShieldHealthMax() ) ) // TITANREBALANCE give shields instead of battery
+								attackerSoul.SetShieldHealth( attackerSoul.GetShieldHealthMax() ) // TITANREBALANCE give shields instead of battery
 						#endif
 					}
 

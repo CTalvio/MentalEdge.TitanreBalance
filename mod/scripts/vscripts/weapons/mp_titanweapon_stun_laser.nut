@@ -90,9 +90,9 @@ void function StunLaser_DamagedTarget( entity target, var damageInfo )
 			entity soul = target.GetTitanSoul()
 			if ( IsValid( soul ) )
 			{
-				int shieldRestoreAmount = 500
+				int shieldRestoreAmount = 800
 				if ( SoulHasPassive( soul, ePassives.PAS_VANGUARD_SHIELD ) )
-					shieldRestoreAmount = int( 2.0 * shieldRestoreAmount )
+					shieldRestoreAmount = int( 1.5 * shieldRestoreAmount )
 
 				float shieldAmount = min( soul.GetShieldHealth() + shieldRestoreAmount, soul.GetShieldHealthMax() )
 				shieldRestoreAmount = soul.GetShieldHealthMax() - int( shieldAmount )
@@ -109,7 +109,7 @@ void function StunLaser_DamagedTarget( entity target, var damageInfo )
 				EmitSoundOnEntityOnlyToPlayer( target, attacker, "EnergySyphon_ShieldGive" )
 
 			// TITANREBALANCE also give user shields on energy transfer
-			int shieldRestoreAmount = target.GetArmorType() == ARMOR_TYPE_HEAVY ? 300 : 200
+			int shieldRestoreAmount = target.GetArmorType() == ARMOR_TYPE_HEAVY ? 500 : 200
 			entity soulattacker = attacker.GetTitanSoul()
 			if ( IsValid( soulattacker ) )
 			{

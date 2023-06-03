@@ -3,14 +3,14 @@
    "Description": "Titan rebalance.",
    "LoadPriority": 5,
    "RequiredOnClient": false,
-   "Version": "1.0.0",
+   "Version": "1.0.1",
    "Dependencies": {
       "FSCC_ENABLED": "Fifty.ServerChatCommands [FSCC]"
    },
    "ConVars": [
         {
         "Name": "titan_rebalance_tips",
-        "DefaultValue": "1"  // Set this to zero to disable the contextual loadout tips. (Displaying changes in chat when embarking a titan) This does not require FSU, and is without it the only way the mod can provide players with info about the changes to their titans.
+        "DefaultValue": "0"  // Set this to one to enable the contextual loadout tips. (Displaying changes in chat when dropping a titan) This does not require FSU, and is without it the only way the mod can provide players with info about the changes to their titans.
         }
    ],
    "Scripts": [

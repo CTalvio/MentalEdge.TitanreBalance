@@ -1,0 +1,26 @@
+WeaponData
+{
+	Mods
+	{
+
+		dev_mod_low_recharge
+		{
+			"regen_ammo_refill_rate"						"*5.0"
+		}
+
+		burn_mod_titan_flame_wall
+		{
+			"explosion_damage"								"*1.15"
+			"explosion_damage_heavy_armor"					"*1.15"
+			"is_burn_mod"		"1"
+		}
+		pas_scorch_firewall
+		{
+			"regen_ammo_refill_rate"						"25"
+		}
+		pas_se_duration
+		{
+
+		}
+	}
+}

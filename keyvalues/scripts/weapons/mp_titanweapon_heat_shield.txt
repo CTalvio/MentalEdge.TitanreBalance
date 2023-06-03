@@ -1,0 +1,83 @@
+WeaponData
+{
+
+	// Ammo
+	"ammo_stockpile_max"							"4500"
+	"ammo_clip_size"   								"-1"
+	"ammo_default_total"							"0"
+	"cooldown_type"                                 "vortex_drain"
+
+	"damage_type" 									"burn"
+
+	"npc_use_short_duration"						"0.7"
+	"npc_use_normal_duration"						"2.0"
+	"npc_use_min_damage"							"600"
+	"npc_use_max_damage"							"1200"
+
+	"aimassist_disable_hipfire_humansonly"			"1"
+	"aimassist_disable_ads_humansonly"				"1"
+
+	MP_BASE
+	{
+		// Charge settings
+		"charge_time" 									"4.0"
+		"charge_cooldown_time"							"7.0"
+		"charge_cooldown_delay"   						"0.5"
+		"charge_end_forces_fire"  						"0"
+		"charge_remain_full_when_fired"					"1"
+
+		// Damage - When Used by Players
+		"damage_near_distance"							"180"
+		"damage_far_distance" 							"180"
+		"damage_near_value"   							"25"
+		"damage_far_value"								"25"
+		"damage_near_value_titanarmor"					"180"
+		"damage_far_value_titanarmor" 					"180"
+		"impulse_force"   								"0"
+
+		"enable_highlight_networking_on_creation"		"<KEEP_DEFAULT>"
+	}
+	
+	// Behavior
+	"fire_rate"   									"5"
+	"zoom_time_in"									"0.125"
+	"zoom_time_out"   								"0.125"
+	"zoom_fov"										"75"
+	"holster_time"									".2"
+	"deploy_time" 									".2"
+	"lower_time"  									".2"
+	"raise_time"  									".2"
+	"play_offhand_charging_anim"  					"1"
+	"offhand_blocks_sprint"							"1"
+	"allow_empty_fire"								"1"
+	"reload_enabled"  								"1"
+	"allow_empty_click"   							"1"
+	"empty_reload_only"   							"0"
+	"trigger_snipercam"   							"0"
+	"allow_headshots" 								"0"
+	
+	Mods
+	{
+		npc_normal_difficulty
+		{
+			"charge_cooldown_time"							"*2.0"
+			"charge_cooldown_delay"   						"*2.0"
+			"charge_time" 									"*2.0"
+		}
+		dev_infinite
+		{
+			"charge_time" 							"-1.0"
+			"charge_cooldown_time"					"0.0"
+			"charge_cooldown_delay"   				"0.0"
+		}
+		pas_scorch_shield
+		{
+			"charge_cooldown_time"							"*1.2"
+			"charge_time" 									"*1.2"
+			"damage_near_value"   							"*1.22"
+			"damage_far_value"								"*1.22"
+			"damage_near_value_titanarmor"					"*1.22"
+			"damage_far_value_titanarmor" 					"*1.22"
+		}
+	}
+}

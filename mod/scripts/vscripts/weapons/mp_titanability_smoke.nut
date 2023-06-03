@@ -8,6 +8,9 @@ global function MpTitanAbilitySmoke_Init
 
 const SHIELD_BODY_FX			= $"P_xo_armor_body_CP"
 
+global const float REBALANCE_COUNTER_READY_REGEN_TIME = 20.0
+const int REBALANCE_MAELSTROM_DAMAGE = 900
+
 void function MpTitanAbilitySmoke_Init()
 {
 	PrecacheParticleSystem( SHIELD_BODY_FX )
@@ -37,8 +40,10 @@ var function OnWeaponPrimaryAttack_titanability_smoke( entity weapon, WeaponPrim
 			PlayerUsedOffhand( player, weapon )
 
 #if MP && SERVER && ANTI_RODEO_SMOKE_ENABLED // JFS
-		if ( player.GetOffhandWeapon( OFFHAND_INVENTORY ) == weapon && player.GetWeaponAmmoStockpile( weapon ) == 0 )
-			player.TakeOffhandWeapon( OFFHAND_INVENTORY )
+		entity soul = player.GetTitanSoul()
+		if ( !SoulHasPassive( soul, ePassives.PAS_ANTI_RODEO ) ) // TITANREBALANCE Don't take electric smoke for counter ready
+			if ( player.GetOffhandWeapon( OFFHAND_INVENTORY ) == weapon && player.GetWeaponAmmoStockpile( weapon ) == 0 )
+				player.TakeOffhandWeapon( OFFHAND_INVENTORY )
 #endif
 
 		return weapon.GetAmmoPerShot()
@@ -86,7 +91,7 @@ void function TitanSmokescreen( entity ent, entity weapon )
 	if ( weapon.HasMod( "maelstrom" ) )
 	{
 		smokescreen.dpsPilot = 90
-		smokescreen.dpsTitan = 900 // TITANREBALANCE was 1350
+		smokescreen.dpsTitan = REBALANCE_MAELSTROM_DAMAGE
 		smokescreen.deploySound1p = SFX_SMOKE_DEPLOY_BURN_1P
 		smokescreen.deploySound3p = SFX_SMOKE_DEPLOY_BURN_3P
 	}

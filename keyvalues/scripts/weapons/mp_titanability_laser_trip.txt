@@ -87,8 +87,13 @@ WeaponData
 		}
 		pas_ion_tripwire
 		{
-			"regen_ammo_refill_rate"						"33"
 			"shared_energy_cost"							"75"
+			"ammo_stockpile_max"							"400"
+			"ammo_clip_size"   								"400"
+			"ammo_default_total"							"400"
+			"ammo_per_shot"									"200"
+			"ammo_min_to_fire"								"200"
+			"regen_ammo_refill_rate"						"12.5"
 		}
 	}
 }
