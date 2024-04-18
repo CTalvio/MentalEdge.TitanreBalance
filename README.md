@@ -14,6 +14,23 @@ Get FSU here: [Fifty's Server Utilities](https://northstar.thunderstore.io/packa
 
 You CAN run the rebalance without FSU. You will not be able to use the !titans command, but contextual titan change info can still be enabled in mod.json.
 
+#### 1.0.3
+
+- Northstar changes
+- Ion changes
+- Various fixes
+
+#### 1.0.2
+
+- Northstar changes
+- Scorch reload fix
+- Ion changes
+
+#### 1.0.1
+
+- Scorch changes
+- Monarch changes
+
 ## Full Changelist
 
 ### General
@@ -31,6 +48,7 @@ You CAN run the rebalance without FSU. You will not be able to use the !titans c
 
     Splitter rifle
     - Energy cost of split fire reduced 30 > 20
+    - Split fire consumes twice the ammo
 
     Vortex shield
     - Activation costs 50 energy
@@ -75,7 +93,6 @@ You CAN run the rebalance without FSU. You will not be able to use the !titans c
     - Cooldown reduced 14s > 10s
 
     Burst Loader kit
-    - Loaded bursts are not lost on unADS -pending
     - Burst rate 5 > 9
     - Normal fire rate is no longer reduced
     

@@ -1,4 +1,4 @@
-global const TITAN_REBALANCE_VERSION = "1.0.1"
+global const TITAN_REBALANCE_VERSION = "1.0.3"
 // Data structure: "titan","id","name","summary","details"
 global array <array <string> > titanData = [
 
@@ -23,6 +23,7 @@ global array <array <string> > titanData = [
     [
         "ion", "splitter", "Splitter Rifle", "Split fire cost is reduced by a third.",
         "- Energy cost of split fire reduced 30 > 20"
+        "- Split fire consumes twice the ammo"
     ],[
         "ion", "vortex", "Vortex shield", "Raising the vortex shield costs some energy, but keeping it up costs less.",
         "- Activation costs 50 energy" + "\n" +
@@ -112,11 +113,12 @@ global array <array <string> > titanData = [
     ],[
         "northstar", "flightcore","Flight Core", "Flight Core is faster.",
         "- Duration reduced 6s > 4s" + "\n" +
+        "- Damage increased 300 > 350" + "\n" +
         "- Fire rate increased 12 > 15" + "\n" +
         "- Landing/Take-off time decreased 1s > 0.6s" + "\n" +
         "- Rocket speed increased 2000 > 2750"
     ],[
-        "northstar", "tether","Tether Trap", "Tether trap now activates quicker after deployment and applies stun.",
+        "northstar", "tether","Tether Trap", "Tether trap now activates quicker after deployment and applies a stun.",
         "- Activation delay 1.5s > 0.6s" + "\n" +
         "- Trigger range 350 > 420" + "\n" +
         "- Applies stun for 1s"
@@ -171,7 +173,7 @@ global array <array <string> > titanData = [
         "scorchkit", "inferno","Inferno Shield", "The inferno kit cooldown penalty is reduced.",
         "- Reduce cooldown penalty 50% > 20%"
     ],[
-        "scorchkit", "fuelforthefire","Fuel for the Fire", "Fuel for the Fire allows deploying three smaller gas canisters.",
+        "scorchkit", "fuelforthefire","Fuel for the Fire", "Fuel for the Fire allows scorch to deploy three gas canisters.",
         "- Gas Canister gets an additional charge" + "\n" +
         "- Cooldown per canister 6s > 5s"
     ],[
@@ -182,7 +184,7 @@ global array <array <string> > titanData = [
 
     // Monarch
     [
-        "monarch", "xo16", "XO-16", "The XO-16 now fires projectiles.",
+        "monarch", "xo16", "XO-16", "The XO-16 is now slightly less effective against pilots.",
         "- Pilot damage reduced 3 hit > 4 hit / 45 > 33 / 40 > 19" + "\n" +
         "- Falloff 1200 > 1000 / 1800 > 1800"
     ],[

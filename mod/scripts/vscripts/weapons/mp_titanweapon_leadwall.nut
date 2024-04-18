@@ -93,6 +93,8 @@ function FireWeaponPlayerAndNPC( WeaponPrimaryAttackParams attackParams, bool pl
 			if ( bolt )
 			{
 				bolt.kv.gravity = 0.4 // 0.09
+				bolt.s.index <- index
+				bolt.s.adsMultiplier <- adsMultiplier
 
 				if ( weapon.GetWeaponClassName() == "mp_weapon_shotgun_doublebarrel" )
 					bolt.SetProjectileLifetime( RandomFloatRange( 1.0, 1.3 ) )

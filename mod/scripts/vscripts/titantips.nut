@@ -6,6 +6,9 @@ int name = 2
 int summary = 3
 int details = 4
 
+float titanRegenStartDelay = 5.0
+int titanRegenRate = 25
+
 array<string> alreadySentTips = []
 
 array<string> goodToKnowList = [
@@ -34,7 +37,7 @@ void function TitanTipsInit(){
 	command.m_UsageUser = "titans <titan>"
 	command.m_Description = "View titan rebalance changes."
 	command.m_Group = "REBALANCE"
-	command.m_Abbreviations = ["tnerfs","tnerf","tbuff","tbuffs","tchangelog","tchange"]
+	command.m_Abbreviations = ["tnerfs","tnerf","tbuff","tbuffs","tchangelog","tchanges"]
 	command.Callback = titanInfoCommand
 	FSCC_RegisterCommand( "titans", command )
 #endif

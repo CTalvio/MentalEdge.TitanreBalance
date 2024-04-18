@@ -1005,7 +1005,7 @@ void function AddCreditToTitanCoreBuilder( entity titan, float credit )
     if ( IsValid( core ) && core.GetWeaponClassName() == "mp_titancore_upgrade" )
         credit *= (1.8 / (soul.GetTitanSoulNetInt( "upgradeCount" ) + 1)) + 0.2
 
-	// TITANREBALANCE Apply new assault chip bonus bonus
+	// TITANREBALANCE Apply new assault chip bonus
 	if ( SoulHasPassive( soul, ePassives.PAS_ENHANCED_TITAN_AI ) && IsValid( bossPlayer ) )
 		credit *= 1 + REBALANCE_PAS_OVERCORE_MAX_BONUS * pow(( titan.GetHealth() / titan.GetMaxHealth() ), 2)
 

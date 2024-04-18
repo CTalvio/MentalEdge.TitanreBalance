@@ -702,6 +702,15 @@ void function ApplyTitanWeaponPassives( entity titan, TitanLoadoutDef loadout )
 		}
 	}
 
+	// TITANREBALANCE Give scorch two rounds by giving the thermite launcher the FD upgrade
+	if( loadout.titanClass == "scorch")
+	{
+		entity weapon = titan.GetMainWeapons()[0]
+		array<string> mods = weapon.GetMods()
+		mods.append( "fd_wpn_upgrade_1" )
+		weapon.SetMods( mods )
+	}
+
 	foreach ( passive, value in soul.passives )
 	{
 		if ( !value )
@@ -789,7 +798,7 @@ void function ApplyTitanWeaponPassives( entity titan, TitanLoadoutDef loadout )
 				weapon.SetMods( mods )
 				break
 
-				// TITANREBALANCE replace fuel for the fire
+			// TITANREBALANCE replace fuel for the fire
 			case ePassives.PAS_SCORCH_FIREWALL:
 				entity weapon = titan.GetOffhandWeapon( OFFHAND_ANTIRODEO )
 				array<string> mods = weapon.GetMods()

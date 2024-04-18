@@ -220,10 +220,7 @@ void function OnProjectileCollision_titanweapon_sticky_40mm( entity projectile, 
 #if SERVER
 void function ApplyTrackerMark( entity owner, entity hitEnt )
 {
-	if ( !IsAlive( hitEnt ) )
-		return
-
-	if ( owner.IsProjectile() )
+	if ( !IsValid( owner ) || owner.IsProjectile() || !IsAlive( hitEnt ) )
 		return
 
 	entity trackerRockets = owner.GetOffhandWeapon( OFFHAND_ORDNANCE )

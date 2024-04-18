@@ -47,6 +47,7 @@ WeaponData
 		proto_particle_accelerator
 		{
 			"fire_rate"							"*1"
+			"ammo_min_to_fire"								"2"
 
 			//Sounds
 			"burst_or_looping_fire_sound_start_1p"			"Weapon_Particle_Accelerator_AltFire_FirstShot_1P"
@@ -74,6 +75,7 @@ WeaponData
 		proto_particle_accelerator_pas
 		{
 			"fire_rate"							"*1"
+			"ammo_min_to_fire"								"2"
 
 			//Sounds
 			"burst_or_looping_fire_sound_start_1p"			"Weapon_Particle_Accelerator_AltFire_FirstShot_1P"

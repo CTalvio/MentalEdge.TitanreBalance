@@ -512,6 +512,29 @@ void function LaserTrip_DamagedPlayerOrNPC( entity ent, var damageInfo )
 		else
 		 	EmitSoundOnEntityOnlyToPlayer( ent, ent, "flesh_explo_med_3p_vs_1p" )
 	}
+
+	entity inflictor = DamageInfo_GetInflictor( damageInfo )
+
+	if ( !IsValid( inflictor) )
+	{
+		DamageInfo_SetDamage( damageInfo, 0 )
+		return
+	}
+
+	float maxDamage = 0.0
+	if ( ent in inflictor.s.entityDamageTable )
+		maxDamage = expect float( inflictor.s.entityDamageTable[ent] )
+	else
+		inflictor.s.entityDamageTable[ent] <- 0.0
+
+	float damage = DamageInfo_GetDamage( damageInfo )
+	if ( damage > maxDamage )
+	{
+		DamageInfo_SetDamage( damageInfo, damage - maxDamage )
+		inflictor.s.entityDamageTable[ent] = damage
+	}
+	else
+		DamageInfo_SetDamage( damageInfo, 0 )
 }
 
 entity function CreatePylonDamageInflictorHelper()

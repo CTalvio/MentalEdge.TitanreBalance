@@ -3,7 +3,7 @@
    "Description": "Titan rebalance.",
    "LoadPriority": 5,
    "RequiredOnClient": false,
-   "Version": "1.0.1",
+   "Version": "1.0.3",
    "Dependencies": {
       "FSCC_ENABLED": "Fifty.ServerChatCommands [FSCC]"
    },
@@ -11,6 +11,14 @@
         {
         "Name": "titan_rebalance_tips",
         "DefaultValue": "0"  // Set this to one to enable the contextual loadout tips. (Displaying changes in chat when dropping a titan) This does not require FSU, and is without it the only way the mod can provide players with info about the changes to their titans.
+        },
+        {
+        "Name": "titan_regen",
+        "DefaultValue": "1"  // Enable titan health regen.
+        },
+        {
+        "Name": "titan_spillover",
+        "DefaultValue": "1"  // Enable scorch/monarch spillover damage mitigation, this will prevent them from taking further damage for 0.25 seconds when they lose a health bar.
         }
    ],
    "Scripts": [
@@ -19,6 +27,13 @@
          "RunOn": "( SERVER ) && MP",
          "ServerCallback": {
             "After": "TitanTipsInit"
+         }
+      },
+      {
+         "Path": "titanregen.nut",
+         "RunOn": "( SERVER ) && MP",
+         "ServerCallback": {
+            "After": "TRBRegenInit"
          }
       },
       {

@@ -214,6 +214,7 @@ float function HandleBlockingAndCalcDamageScaleForHit( entity blockingEnt, var d
 		return 1.0
 	}
 
+	// REBALANCE swordblock
 	if ( blockingEnt.IsTitan() )
 	{
 		bool shouldPassThroughDamage = (( DamageInfo_GetCustomDamageType( damageInfo ) & (DF_RODEO | DF_MELEE | DF_DOOMED_HEALTH_LOSS) ) > 0)
